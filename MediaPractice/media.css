@@ -4,7 +4,7 @@ body {
 
 header {
   background-color: #f4b942;
-  color: #0B1761;
+  color: #0b1761;
   padding: 25px;
 }
 
@@ -45,7 +45,7 @@ article {
   margin-left: 45%;
 }
 
-#animalName {
+#animalNameBox {
   width: 80px;
   margin-left: 47.5%;
   text-align: center;
@@ -67,7 +67,7 @@ footer {
 }
 
 footer p {
-  color: #0B1761;
+  color: #0b1761;
   margin: 0;
   padding: 8px;
   text-align: center;
