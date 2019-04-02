@@ -76,7 +76,7 @@ function drop(event) {
 
 function init() {
   const animals = animalList.querySelectorAll(".animal");
-  animals.forEach(function(animal) {
+  animals.forEach(function (animal) {
     animal.addEventListener("dragstart", drag);
   });
   animalBox.addEventListener("dragover", allowDrop);
