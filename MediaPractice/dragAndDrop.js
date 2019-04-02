@@ -7,11 +7,14 @@ const PIG_ID = "pig";
 const BIRD_ID = "bird";
 const SHEEP_ID = "sheep";
 const CAT_ID = "cat";
+const CONAN_ID = "conan";
+
 
 const PIG = "돼지";
 const BIRD = "새";
 const SHEEP = "양";
 const CAT = "고양이";
+const CONAN = "코난";
 
 const EMPTY = "empty";
 
@@ -31,7 +34,7 @@ function showAnimalName(animalId) {
 
 function playAnimalSound(animalId) {
   const audio = document.createElement("audio");
-  const audioFile = "audios/" + animalId + ".mp3";
+  const audioFile = "audios/" + animalId + ".ogg";
   audio.setAttribute("src", audioFile);
   audio.innerText = "지원하지 않는 브라우저입니다.";
   audio.autoplay = true;
@@ -48,6 +51,8 @@ function findAnimalName(name) {
     animalName = SHEEP;
   } else if (name === CAT_ID) {
     animalName = CAT;
+  } else if (name === CONAN_ID) {
+	animalName = CONAN;
   }
   return animalName;
 }
