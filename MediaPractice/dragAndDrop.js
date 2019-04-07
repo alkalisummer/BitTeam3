@@ -1,4 +1,4 @@
-const body = document.querySelector("body");
+const body = document.g("body");
 const animalList = document.querySelector(".animalList");
 const animalNameBox = document.querySelector("#animalNameBox");
 const animalBox = document.querySelector("#animalBox");
@@ -15,8 +15,6 @@ const BIRD = "새";
 const SHEEP = "양";
 const CAT = "고양이";
 const CONAN = "코난";
-
-const EMPTY = "empty";
 
 function getNameAndSound(animalId) {
   const audio = document.querySelector("audio");
@@ -38,6 +36,7 @@ function playAnimalSound(animalId) {
   audio.setAttribute("src", audioFile);
   audio.innerText = "지원하지 않는 브라우저입니다.";
   audio.autoplay = true;
+  //<audio src="audio/pig.ogg" autoplay>지원하지 않는 브라우저입니다</audio>
   body.appendChild(audio);
 }
 
