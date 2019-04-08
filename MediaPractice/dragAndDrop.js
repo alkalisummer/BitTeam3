@@ -1,4 +1,4 @@
-const body = document.g("body");
+const body = document.querySelector("body");
 const animalList = document.querySelector(".animalList");
 const animalNameBox = document.querySelector("#animalNameBox");
 const animalBox = document.querySelector("#animalBox");
@@ -9,36 +9,11 @@ const SHEEP_ID = "sheep";
 const CAT_ID = "cat";
 const CONAN_ID = "conan";
 
-
 const PIG = "돼지";
 const BIRD = "새";
 const SHEEP = "양";
 const CAT = "고양이";
 const CONAN = "코난";
-
-function getNameAndSound(animalId) {
-  const audio = document.querySelector("audio");
-  if (audio !== null) {
-    body.removeChild(audio);
-  }
-  showAnimalName(animalId);
-  playAnimalSound(animalId);
-}
-
-function showAnimalName(animalId) {
-  const name = findAnimalName(animalId);
-  animalNameBox.innerText = name;
-}
-
-function playAnimalSound(animalId) {
-  const audio = document.createElement("audio");
-  const audioFile = "audios/" + animalId + ".ogg";
-  audio.setAttribute("src", audioFile);
-  audio.innerText = "지원하지 않는 브라우저입니다.";
-  audio.autoplay = true;
-  //<audio src="audio/pig.ogg" autoplay>지원하지 않는 브라우저입니다</audio>
-  body.appendChild(audio);
-}
 
 function findAnimalName(name) {
   let animalName = "";
@@ -51,9 +26,33 @@ function findAnimalName(name) {
   } else if (name === CAT_ID) {
     animalName = CAT;
   } else if (name === CONAN_ID) {
-	animalName = CONAN;
+    animalName = CONAN;
   }
   return animalName;
+}
+
+function showAnimalName(animalId) {
+  const name = findAnimalName(animalId);
+  animalNameBox.innerText = name;
+}
+
+function playAnimalSound(animalId) {
+  const audio = document.createElement("audio");
+  const audioFile = `audios/${animalId}.ogg`;
+  audio.setAttribute("src", audioFile);
+  audio.innerText = "지원하지 않는 브라우저입니다.";
+  audio.autoplay = true;
+  // <audio src="audio/pig.ogg" autoplay>지원하지 않는 브라우저입니다</audio>
+  body.appendChild(audio);
+}
+
+function getNameAndSound(animalId) {
+  const audio = document.querySelector("audio");
+  if (audio !== null) {
+    body.removeChild(audio);
+  }
+  showAnimalName(animalId);
+  playAnimalSound(animalId);
 }
 
 function drag(event) {
@@ -80,7 +79,7 @@ function drop(event) {
 
 function init() {
   const animals = animalList.querySelectorAll(".animal");
-  animals.forEach(function (animal) {
+  animals.forEach((animal) => {
     animal.addEventListener("dragstart", drag);
   });
   animalBox.addEventListener("dragover", allowDrop);
