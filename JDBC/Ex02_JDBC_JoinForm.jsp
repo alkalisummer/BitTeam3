@@ -155,15 +155,6 @@
   </div>
 </div>
 
-<div class="footer">
-  <jsp:include page="common/Bottom.jsp" />
-</div>
+<jsp:include page="common/Bottom.jsp" />
 
-<script>
-  $("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-  });
-</script>
-</body>
-</html>
+

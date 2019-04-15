@@ -60,15 +60,4 @@ pageEncoding="UTF-8" %>
       </div>
     </div>
 
-    <div class="footer">
-      <jsp:include page="common/Bottom.jsp" />
-    </div>
-
-    <script>
-      $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-      });
-    </script>
-  </body>
-</html>
+    <jsp:include page="common/Bottom.jsp" />
