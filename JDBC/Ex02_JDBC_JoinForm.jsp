@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Join Form</title>
   <jsp:include page="common/Head.jsp" />
+  <title>Join Form</title>
   <script type="text/javascript">
     //jquery 로 간단하게 유효성 check 하기
     $(function() {
