@@ -3,14 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-  />
-  <title>Insert title here</title>
-  <script src="css/jquery/jquery.min.js"></script>
-  <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <title>Join Form</title>
+  <jsp:include page="common/Head.jsp" />
   <script type="text/javascript">
     //jquery 로 간단하게 유효성 check 하기
     $(function() {
@@ -45,21 +39,6 @@
       });
     });
   </script>
-  <!--
-CREATE TABLE koreaMember
-(
-  id VARCHAR2(50) PRIMARY KEY ,
-  pwd VARCHAR2(50) NOT NULL,
-  NAME VARCHAR2(50) NOT NULL,
-  age NUMBER ,
-  gender CHAR(4),
-  email VARCHAR2(50),
-  ip   VARCHAR2(50)
-)
--->
-
-  <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="css/simple-sidebar.css" rel="stylesheet" />
 </head>
 <body>
 <div class="d-flex" id="wrapper">
