@@ -16,6 +16,7 @@
       out.write("<li><a href=\"JoinForm.jsp\">Register</a></li>");
   } else {
       out.write("<li><a href=\"Logout.jsp\">Logout</a></li>");
+      out.write("<li><a href=\"MemberList.jsp\">MemberList</a></li>");
   }
 %>
     </ul>
