@@ -11,7 +11,7 @@
 		<div class="img">
 		<img src="images/login.png">
 		</div>
-		<form class="form-horizontal" role="form" action="Loginok.jsp">
+		<form class="form-horizontal" role="form" action="LoginOK.jsp">
 		<div class="login-form">
 			<h2>Team3</h2>
 			<div class="form-id">
