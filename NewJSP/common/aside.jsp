@@ -3,6 +3,6 @@
   <ul class="aside-nav">
     <li><a href="#">Main</a></li>
     <li><a href="#">Login</a></li>
-    <li><a href="#">Register</a></li>
+    <li><a href="JoinForm.jsp">Register</a></li>
   </ul>
 </aside>
