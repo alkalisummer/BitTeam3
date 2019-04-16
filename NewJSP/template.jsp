@@ -5,7 +5,9 @@
 <jsp:include page="common/header.jsp" />
 <div class="center-area">
   <jsp:include page="common/aside.jsp" />
-  <jsp:include page="page.jsp" />
+  <main>
+    <%--여기에 내용을 넣으세요--%>
+  </main>
 </div>
 <jsp:include page="common/footer.jsp" />
 
