@@ -1,3 +1,4 @@
+
  /*  
     Side Navigation Menu V2, RWD
     ===================
@@ -65,7 +66,7 @@ h2 a {
 .container {
       text-align: left;
       overflow: hidden;
-      width: 60%;
+      width: 40%;
       margin: 0 auto;
   display: table;
   padding: 0 0 8em 0;
@@ -79,19 +80,20 @@ h2 a {
 
 /* Background-color of the odd rows */
 .container tr:nth-child(odd) {
-      background-color: #636e72;
+      background-color: #8395a7;
 }
 
 /* Background-color of the even rows */
 .container tr:nth-child(even) {
-      background-color: #b2bec3;
+      background-color: #c8d6e5;
+      color: white;
 }
 
 .container th {
       background-color: #1F2739;
 }
 
-.container td:first-child { color: white; }
+.container td:first-child {  }
 
 .container tr:hover {
    background-color: white;
@@ -119,3 +121,4 @@ h2 a {
 .container td:nth-child(4),
 .container th:nth-child(4) { display: none; }
 }
+
