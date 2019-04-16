@@ -5,7 +5,7 @@
 %>
 <aside>
   <ul class="aside-nav">
-    <li><a href="#">Main</a></li>
+    <li><a href="index.jsp">Main</a></li>
 <%
   if (userid == null) {
       out.write("<li><a href=\"Login.jsp\">Login</a></li>");

@@ -8,7 +8,7 @@
   <nav>
     <ul class="top-nav">
       <li>
-        <a href="#"><p>Main</p></a>
+        <a href="index.jsp"><p>Main</p></a>
       </li>
 <%
   if (userid == null) {
