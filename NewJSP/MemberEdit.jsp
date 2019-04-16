@@ -10,7 +10,7 @@
 
 <jsp:include page="common/head.jsp" />
 </head>
-<body>
+<body style = "color:black">
 <jsp:include page="common/header.jsp" />
 <div class="center-area">
   <jsp:include page="common/aside.jsp" />
@@ -36,14 +36,16 @@ try {
 	 
 	 rs.next();
 %>  
-
-
-<table class = "container">
+	
 				<form action="MemberEditok.jsp" method="post">
-
+						
+				
+					<div style ="margin-top:100px">
 					
-					<div>
-						<table style="width: 400px; height: 200px; margin-left: auto; margin-right: auto;">
+						<table class ="container">
+						<tr>
+						<td colspan ="2"><div style = "text-align:center; margin-bottom:40px;"><h1 style = "color:white; font-family:sans-serif">수정하기</h1></div></td>
+						</tr>
 							<tr>
 								<td>아이디</td>
 								<td>
