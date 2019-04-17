@@ -28,6 +28,9 @@
            var set = $("#set").text();
            alert("주문이 완료되었습니다");
            $(this).dialog("close");
+           writeRecord();
+
+          
           },
               취소: function cancle() 
          {

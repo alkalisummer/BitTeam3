@@ -21,7 +21,10 @@ function showDialog() {
 function complete() {}
 
 // 주문 완료하면 주문 내역에 기록하기
-function writeRecord() {}
+function writeRecord(bread, topping, veggie,sauce,set) {
+  var order = `당신이 주문한 내역은 ${bread},${topping},${veggie},${sauce},${set} `;  
+  $('.order').append(order);
+}
 
 function init() {
   const button = document.querySelector(".button");
