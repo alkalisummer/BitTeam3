@@ -28,6 +28,7 @@
            var set = $("#set").text();
            alert("주문이 완료되었습니다");
            $(this).dialog("close");
+           writeRecord(bread, topping, veggie, sauce, set);
           },
               취소: function cancle() 
          {
