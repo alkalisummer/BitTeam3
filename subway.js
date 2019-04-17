@@ -2,15 +2,54 @@
 function showDialog() {
   const breadList = document.querySelector(".bread");
   const radio = breadList.getElementsByTagName("input");
+  const topList = document.querySelector(".topping");
+  const topping = topList.getElementsByTagName("input");
+  const vegList = document.querySelector(".veg");
+  const veget = vegList.getElementsByTagName("input");
+  const sauceList = document.querySelector(".sauce");
+  const sauce = sauceList.getElementsByTagName("input");
+  const setList = document.querySelector(".set");
+  const set = setList.getElementsByTagName("input");
+  
   let bread = "";
+  let toparray = [];
+  let vegarray = []; 
+  let saucearray = [];
+  let setarray = [];
   for (var input of radio) {
     if (input.checked) {
       bread = input.value;
     }
   }
+  
+  for(var input of topping){
+	  if(input.checked){
+		  toparray.push(input.value);
+	  }
+  }
+  for(var input of veget){
+	  if(input.checked){
+		  vegarray.push(input.value);
+	  }
+  }
+  for(var input of sauce){
+	  if(input.checked){
+		  saucearray.push(input.value);
+	  }
+  }
+  
+  for(var input of set){
+	  if(input.checked){
+		  setarray.push(input.value);
+	  }
+  }
 
   $(".button").click(function() {
     $("#bread").text(bread);
+    $("#topping").text(toparray);
+    $('#veggie').text(vegarray);
+    $('#sauce').text(saucearray);
+    $('#set').text(setarray);
     $(".modal").dialog({
       autoOpen: true,
     });
