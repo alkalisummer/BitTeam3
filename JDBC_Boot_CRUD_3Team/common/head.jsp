@@ -3,5 +3,5 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8"/>
-  <title>Main</title>
+  <title>3조</title>
   <link rel="stylesheet" href="css/style.css"/>
