@@ -6,9 +6,9 @@
     <title>jQuery UI Accordion - Default functionality</title>
     <link
       rel="stylesheet"
-      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
     />
-    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <link rel="stylesheet" href="https://resources/demos/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
@@ -16,10 +16,18 @@
         $("#accordion").accordion();
         $("input").checkboxradio();
         $("button").button();
+        $(".modal").dialog({
+          autoOpen: false,
+          modal: true,
+          buttons: {
+            확인: function() {},
+            취소: function() {},
+          },
+        });
       });
     </script>
     <style>
-      .button {
+      .button-container {
         display: flex;
         justify-content: center;
         margin-top: 5%;
@@ -359,8 +367,15 @@
         </fieldset>
       </div>
     </div>
-    <div class="button">
-      <button>주문 완료</button>
+    <div class="button-container">
+      <button class="button">주문 완료</button>
+    </div>
+    <div class="modal" title="주문 확인">
+      <p>빵: <span id="bread"></span></p>
+      <p>추가 토핑: <span id="topping"></span></p>
+      <p>야채: <span id="veggie"></span></p>
+      <p>소스: <span id="sauce"></span></p>
+      <p>세트: <span id="set"></span></p>
     </div>
     <script src="subway.js"></script>
   </body>
