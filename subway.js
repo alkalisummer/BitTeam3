@@ -1,6 +1,16 @@
 // 버튼 누르면 다이얼로그가 나오게
 function showDialog() {
+  const breadList = document.querySelector(".bread");
+  const radio = breadList.getElementsByTagName("input");
+  let bread = "";
+  for (var input of radio) {
+    if (input.checked) {
+      bread = input.value;
+    }
+  }
+
   $(".button").click(function() {
+    $("#bread").text(bread);
     $(".modal").dialog({
       autoOpen: true,
     });
