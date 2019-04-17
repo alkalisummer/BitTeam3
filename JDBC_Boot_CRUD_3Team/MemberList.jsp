@@ -29,7 +29,7 @@
         pstmt = conn.prepareStatement(sql);
         rs = pstmt.executeQuery();
     %>
-    <table class="container" style="width: 400px; height: 100px; margin-left: auto; margin-right: auto">
+    <table class="container" style="height: 100px; margin-left: auto; margin-right: auto">
       <tr>
         <th colspan="4">회원리스트</th>
       </tr>
@@ -37,17 +37,17 @@
         while (rs.next()) {
       %>
       <tr>
-        <td width="100px">
+        <td>
           <a href='Member_Detail.jsp?id=<%=rs.getString("id")%>'><%=rs.getString("id")%>
           </a>
         </td>
-        <td width="100px">
+        <td>
           <%=rs.getString("ip")%>
         </td>
-        <td>
+        <td class="delmod">
           <a href='Member_Delete.jsp?id=<%=rs.getString("id")%>'>[삭제]</a>
         </td>
-        <td>
+        <td class="delmod">
           <a href='MemberEdit.jsp?id=<%=rs.getString("id")%>'>[수정]</a>
         </td>
       </tr>

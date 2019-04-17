@@ -15,25 +15,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   line-height: 1.42em;
-  color: white;
-  background-color: #1F2739;
-}
-
-h2 {
-  font-size: 1em;
-  font-weight: 300;
-  text-align: center;
-  display: block;
-  line-height: 1em;
-  padding-bottom: 2em;
-  color: white;
-}
-
-h2 a {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: white;
-  text-decoration: none;
 }
 
 .blue {
@@ -62,7 +43,7 @@ h2 a {
 .container {
   text-align: left;
   overflow: hidden;
-  width: 40%;
+  width: 80%;
   margin: 0 auto;
   display: table;
   padding: 0 0 8em 0;
@@ -87,6 +68,7 @@ h2 a {
 
 .container th {
   background-color: #1F2739;
+  color: white;
 }
 
 .container td:first-child {
@@ -119,5 +101,9 @@ h2 a {
   .container th:nth-child(4) {
     display: none;
   }
+}
+
+.delmod {
+  width: 10%;
 }
 

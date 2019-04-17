@@ -35,8 +35,8 @@
 
         while (rs.next()) {
     %>
-    <img src="images/user.png" style="float: left; margin-left: 150px; margin-top: 100px; margin-right: 150px;">
-    <table class="container" style="float: left; margin-left: auto; margin-right: 200px; margin-top: 60px;">
+    <img src="images/user.png" style="float: left; margin: 0 auto; margin-left: 10%; margin-bottom: 5%;">
+    <table class="container" style="float: left; margin: 0 auto;">
       <tr>
         <td>아이디</td>
         <td><%= rs.getString("id") %>
