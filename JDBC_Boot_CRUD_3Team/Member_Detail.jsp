@@ -35,7 +35,7 @@
 
         while (rs.next()) {
     %>
-    <img src="images/user.png" style="float: left; margin: 0 auto; margin-left: 10%; margin-bottom: 5%;">
+    <img src="images/user.png" style="float: left; margin: 5%;">
     <table class="container" style="float: left; margin: 0 auto;">
       <tr>
         <td>아이디</td>
