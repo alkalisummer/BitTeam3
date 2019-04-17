@@ -10,34 +10,6 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-      $(function() {
-        $("#accordion").accordion();
-        $("input").checkboxradio();
-        $("button").button();
-        $(".modal").dialog({
-          autoOpen: false,
-          modal: true,
-          buttons: {
-              확인: function complete() 
-         {
-           var bread = $("#bread").text();
-           var topping = $("#topping").text();
-           var veggie = $("#veggie").text();
-           var sauce = $("#sauce").text();
-           var set = $("#set").text();
-           alert("주문이 완료되었습니다");
-           $(this).dialog("close");
-           writeRecord(bread, topping, veggie, sauce, set);
-          },
-              취소: function cancle() 
-         {
-            location.href = "Subway2.html"
-          },
-     },
-        });
-      });
-    </script>
     <style>
       .button-container {
         display: flex;
@@ -72,7 +44,7 @@
         </fieldset>
       </div>
       <h3>추가 토핑</h3>
-      <div>
+      <div class="topping">
         <fieldset>
           <legend>종류</legend>
           <label for="checkbox-nested-1"
@@ -150,7 +122,7 @@
         </fieldset>
       </div>
       <h3>야채</h3>
-      <div>
+      <div class="veggie">
         <fieldset>
           <legend>종류</legend>
           <label for="checkbox-nested-11"
@@ -228,7 +200,7 @@
         </fieldset>
       </div>
       <h3>소스</h3>
-      <div>
+      <div class="sauce">
         <fieldset>
           <legend>종류</legend>
           <label for="checkbox-nested-21"
@@ -306,7 +278,7 @@
         </fieldset>
       </div>
       <h3>세트선택</h3>
-      <div>
+      <div class="set">
         <fieldset>
           <legend>종류</legend>
           <label for="checkbox-nested-31"
@@ -374,13 +346,18 @@
           </label>
           <label for="checkbox-nested-38"
             >수프
-            <input type="checkbox" name="soup-8" id="checkbox-nested-38" />
+            <input
+              type="checkbox"
+              name="soup-8"
+              id="checkbox-nested-38"
+              value="수프"
+            />
           </label>
         </fieldset>
       </div>
     </div>
     <div class="button-container">
-      <button class="button">주문 완료</button>
+      <button id="button">주문 완료</button>
     </div>
     <div class="modal" title="주문 확인">
       <p>빵: <span id="bread"></span></p>
@@ -388,6 +365,9 @@
       <p>야채: <span id="veggie"></span></p>
       <p>소스: <span id="sauce"></span></p>
       <p>세트: <span id="set"></span></p>
+    </div>
+    <div class="order">
+      <h3>주문 내역</h3>
     </div>
     <script src="subway.js"></script>
   </body>
