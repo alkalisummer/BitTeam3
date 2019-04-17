@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+    <style>
+      .box {
+        border: 1px solid black;
+      }
+      .none {
+        /*display: none;*/
+        opacity: 0;
+        transition-duration: 2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>heading</h1>
+    </div>
+    <button id="none">Displaynone</button>
+    <script>
+      const btn = document.getElementById("none");
+      const div = document.querySelector(".box");
+
+      btn.addEventListener("click", function(event) {
+        div.classList.add("none");
+      });
+    </script>
+  </body>
+</html>

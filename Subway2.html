@@ -1,169 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Accordion - Default functionality</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#accordion" ).accordion();
-    $( "input" ).checkboxradio();
-  } 
-  );
-  </script>
-</head>
-<body>
- 
-<div id="accordion">
-  <h3>빵 선택</h3>
-  <div class="bread">
-    <h3>Bread</h3>
-  <fieldset>
-    <legend>빵 종류</legend>
-    <label for="radio-1">화이트</label>
-    <input type="radio" name="bread" id="radio-1">
-    <label for="radio-2">하티</label>
-    <input type="radio" name="bread" id="radio-2">
-    <label for="radio-3">파마산 오레가노</label>
-    <input type="radio" name="bread" id="radio-3">
-    <label for="radio-4">위트</label>
-    <input type="radio" name="bread" id="radio-4">
-    <label for="radio-5">허니오트</label>
-    <input type="radio" name="bread" id="radio-5">
-    <label for="radio-6">플렛</label>
-    <input type="radio" name="bread" id="radio-6">
-  </fieldset>
-  </div>
-  <h3>추가 토핑</h3>
-  <div>
-    <h3>topping</h3>
-  <fieldset>
-    <legend>종류</legend>
-    <label for="checkbox-nested-1">더블업
-      <input type="checkbox" name="topping-1" id="checkbox-nested-1">
-    </label>
-    <label for="checkbox-nested-2">쉬림프
-      <input type="checkbox" name="topping-2" id="checkbox-nested-2">
-    </label>
-    <label for="checkbox-nested-3">에그마요
-      <input type="checkbox" name="topping-3" id="checkbox-nested-3">
-    </label>
-    <label for="checkbox-nested-4">오믈렛
-      <input type="checkbox" name="topping-4" id="checkbox-nested-4">
-    </label>
-    <label for="checkbox-nested-5">아보카도
-      <input type="checkbox" name="topping-5" id="checkbox-nested-5">
-    </label>
-    <label for="checkbox-nested-6">베이컨
-      <input type="checkbox" name="topping-6" id="checkbox-nested-6">
-    </label>
-    <label for="checkbox-nested-7">페퍼로니
-      <input type="checkbox" name="topping-7" id="checkbox-nested-7">
-    </label>
-    <label for="checkbox-nested-8">더블치즈
-      <input type="checkbox" name="topping-8" id="checkbox-nested-8">
-    </label>
-  </fieldset>
-  </div>
-  <h3>야채</h3>
-  <div>
-    <h3>Vegetable</h3>
-  <fieldset>
-    <legend>종류</legend>
-    <label for="checkbox-nested-11">양상추
-      <input type="checkbox" name="vegetable-1" id="checkbox-nested-11">
-    </label>
-    <label for="checkbox-nested-12">토마토
-      <input type="checkbox" name="vegetable-2" id="checkbox-nested-12">
-    </label>
-    <label for="checkbox-nested-13">오이
-      <input type="checkbox" name="vegetable-3" id="checkbox-nested-13">
-    </label>
-    <label for="checkbox-nested-14">피망
-      <input type="checkbox" name="vegetable-4" id="checkbox-nested-14">
-    </label>
-    <label for="checkbox-nested-15">양파
-      <input type="checkbox" name="vegetable-5" id="checkbox-nested-15">
-    </label>
-    <label for="checkbox-nested-16">할라피뇨
-      <input type="checkbox" name="vegetable-6" id="checkbox-nested-16">
-    </label>
-    <label for="checkbox-nested-17">피클
-      <input type="checkbox" name="vegetable-7" id="checkbox-nested-17">
-    </label>
-    <label for="checkbox-nested-18">더블치즈
-      <input type="checkbox" name="vegetable-8" id="checkbox-nested-18">
-    </label>
-  </fieldset>
-  </div>
-  <h3>소스</h3>
-  <div>
-    <h3>sauce</h3>
-  <fieldset>
-    <legend>종류</legend>
-    <label for="checkbox-nested-21">렌치드레싱
-      <input type="checkbox" name="sauce-1" id="checkbox-nested-21">
-    </label>
-    <label for="checkbox-nested-22">마요네즈
-      <input type="checkbox" name="sauce-2" id="checkbox-nested-22">
-    </label>
-    <label for="checkbox-nested-23">스위트 어니언
-      <input type="checkbox" name="sauce-3" id="checkbox-nested-23">
-    </label>
-    <label for="checkbox-nested-24">허니 머스타드
-      <input type="checkbox" name="sauce-4" id="checkbox-nested-24">
-    </label>
-    <label for="checkbox-nested-25">스위트 칠리
-      <input type="checkbox" name="sauce-5" id="checkbox-nested-25">
-    </label>
-    <label for="checkbox-nested-26">사우스 웨스트
-      <input type="checkbox" name="sauce-6" id="checkbox-nested-26">
-    </label>
-    <label for="checkbox-nested-27">머스타드
-      <input type="checkbox" name="sauce-7" id="checkbox-nested-27">
-    </label>
-    <label for="checkbox-nested-28">홀스래디쉬
-      <input type="checkbox" name="sauce-8" id="checkbox-nested-28">
-    </label>
-  </fieldset>
-  </div>
-  <h3>세트선택</h3>
-  <div>
-    <h3>set</h3>
-  <fieldset>
-    <legend>종류</legend>
-    <label for="checkbox-nested-31">포테이토
-      <input type="checkbox" name="soup-1" id="checkbox-nested-31">
-    </label>
-    <label for="checkbox-nested-32">더블 초코칩 쿠키
-      <input type="checkbox" name="soup-2" id="checkbox-nested-32">
-    </label>
-    <label for="checkbox-nested-33">칩
-      <input type="checkbox" name="soup-3" id="checkbox-nested-33">
-    </label>
-    <label for="checkbox-nested-34">콜라
-      <input type="checkbox" name="soup-4" id="checkbox-nested-34">
-    </label>
-    <label for="checkbox-nested-35">사이다
-      <input type="checkbox" name="soup-5" id="checkbox-nested-35">
-    </label>
-    <label for="checkbox-nested-36">커피
-      <input type="checkbox" name="soup-6" id="checkbox-nested-36">
-    </label>
-    <label for="checkbox-nested-37">해쉬 브라운
-      <input type="checkbox" name="soup-7" id="checkbox-nested-37">
-    </label>
-    <label for="checkbox-nested-38">수프
-      <input type="checkbox" name="soup-8" id="checkbox-nested-38">
-    </label>
-  </fieldset>
-  </div>
-</div>
- 
- 
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>jQuery UI Accordion - Default functionality</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="https://resources/demos/style.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $(function() {
+        $("#accordion").accordion();
+        $("input").checkboxradio();
+        $("button").button();
+      });
+    </script>
+    <style>
+      .button {
+        display: flex;
+        justify-content: center;
+        margin-top: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="accordion">
+      <h3>빵 선택</h3>
+      <div class="bread">
+        <fieldset>
+          <legend>빵 종류</legend>
+          <label for="radio-1">화이트</label>
+          <input type="radio" name="bread" id="radio-1" />
+          <label for="radio-2">하티</label>
+          <input type="radio" name="bread" id="radio-2" />
+          <label for="radio-3">파마산 오레가노</label>
+          <input type="radio" name="bread" id="radio-3" />
+          <label for="radio-4">위트</label>
+          <input type="radio" name="bread" id="radio-4" />
+          <label for="radio-5">허니오트</label>
+          <input type="radio" name="bread" id="radio-5" />
+          <label for="radio-6">플렛</label>
+          <input type="radio" name="bread" id="radio-6" />
+        </fieldset>
+      </div>
+      <h3>추가 토핑</h3>
+      <div>
+        <fieldset>
+          <legend>종류</legend>
+          <label for="checkbox-nested-1"
+            >더블업
+            <input type="checkbox" name="topping-1" id="checkbox-nested-1" />
+          </label>
+          <label for="checkbox-nested-2"
+            >쉬림프
+            <input type="checkbox" name="topping-2" id="checkbox-nested-2" />
+          </label>
+          <label for="checkbox-nested-3"
+            >에그마요
+            <input type="checkbox" name="topping-3" id="checkbox-nested-3" />
+          </label>
+          <label for="checkbox-nested-4"
+            >오믈렛
+            <input type="checkbox" name="topping-4" id="checkbox-nested-4" />
+          </label>
+          <label for="checkbox-nested-5"
+            >아보카도
+            <input type="checkbox" name="topping-5" id="checkbox-nested-5" />
+          </label>
+          <label for="checkbox-nested-6"
+            >베이컨
+            <input type="checkbox" name="topping-6" id="checkbox-nested-6" />
+          </label>
+          <label for="checkbox-nested-7"
+            >페퍼로니
+            <input type="checkbox" name="topping-7" id="checkbox-nested-7" />
+          </label>
+          <label for="checkbox-nested-8"
+            >더블치즈
+            <input type="checkbox" name="topping-8" id="checkbox-nested-8" />
+          </label>
+        </fieldset>
+      </div>
+      <h3>야채</h3>
+      <div>
+        <fieldset>
+          <legend>종류</legend>
+          <label for="checkbox-nested-11"
+            >양상추
+            <input type="checkbox" name="vegetable-1" id="checkbox-nested-11" />
+          </label>
+          <label for="checkbox-nested-12"
+            >토마토
+            <input type="checkbox" name="vegetable-2" id="checkbox-nested-12" />
+          </label>
+          <label for="checkbox-nested-13"
+            >오이
+            <input type="checkbox" name="vegetable-3" id="checkbox-nested-13" />
+          </label>
+          <label for="checkbox-nested-14"
+            >피망
+            <input type="checkbox" name="vegetable-4" id="checkbox-nested-14" />
+          </label>
+          <label for="checkbox-nested-15"
+            >양파
+            <input type="checkbox" name="vegetable-5" id="checkbox-nested-15" />
+          </label>
+          <label for="checkbox-nested-16"
+            >할라피뇨
+            <input type="checkbox" name="vegetable-6" id="checkbox-nested-16" />
+          </label>
+          <label for="checkbox-nested-17"
+            >피클
+            <input type="checkbox" name="vegetable-7" id="checkbox-nested-17" />
+          </label>
+          <label for="checkbox-nested-18"
+            >더블치즈
+            <input type="checkbox" name="vegetable-8" id="checkbox-nested-18" />
+          </label>
+        </fieldset>
+      </div>
+      <h3>소스</h3>
+      <div>
+        <fieldset>
+          <legend>종류</legend>
+          <label for="checkbox-nested-21"
+            >렌치드레싱
+            <input type="checkbox" name="sauce-1" id="checkbox-nested-21" />
+          </label>
+          <label for="checkbox-nested-22"
+            >마요네즈
+            <input type="checkbox" name="sauce-2" id="checkbox-nested-22" />
+          </label>
+          <label for="checkbox-nested-23"
+            >스위트 어니언
+            <input type="checkbox" name="sauce-3" id="checkbox-nested-23" />
+          </label>
+          <label for="checkbox-nested-24"
+            >허니 머스타드
+            <input type="checkbox" name="sauce-4" id="checkbox-nested-24" />
+          </label>
+          <label for="checkbox-nested-25"
+            >스위트 칠리
+            <input type="checkbox" name="sauce-5" id="checkbox-nested-25" />
+          </label>
+          <label for="checkbox-nested-26"
+            >사우스 웨스트
+            <input type="checkbox" name="sauce-6" id="checkbox-nested-26" />
+          </label>
+          <label for="checkbox-nested-27"
+            >머스타드
+            <input type="checkbox" name="sauce-7" id="checkbox-nested-27" />
+          </label>
+          <label for="checkbox-nested-28"
+            >홀스래디쉬
+            <input type="checkbox" name="sauce-8" id="checkbox-nested-28" />
+          </label>
+        </fieldset>
+      </div>
+      <h3>세트선택</h3>
+      <div>
+        <fieldset>
+          <legend>종류</legend>
+          <label for="checkbox-nested-31"
+            >포테이토
+            <input type="checkbox" name="soup-1" id="checkbox-nested-31" />
+          </label>
+          <label for="checkbox-nested-32"
+            >더블 초코칩 쿠키
+            <input type="checkbox" name="soup-2" id="checkbox-nested-32" />
+          </label>
+          <label for="checkbox-nested-33"
+            >칩
+            <input type="checkbox" name="soup-3" id="checkbox-nested-33" />
+          </label>
+          <label for="checkbox-nested-34"
+            >콜라
+            <input type="checkbox" name="soup-4" id="checkbox-nested-34" />
+          </label>
+          <label for="checkbox-nested-35"
+            >사이다
+            <input type="checkbox" name="soup-5" id="checkbox-nested-35" />
+          </label>
+          <label for="checkbox-nested-36"
+            >커피
+            <input type="checkbox" name="soup-6" id="checkbox-nested-36" />
+          </label>
+          <label for="checkbox-nested-37"
+            >해쉬 브라운
+            <input type="checkbox" name="soup-7" id="checkbox-nested-37" />
+          </label>
+          <label for="checkbox-nested-38"
+            >수프
+            <input type="checkbox" name="soup-8" id="checkbox-nested-38" />
+          </label>
+        </fieldset>
+      </div>
+    </div>
+    <div class="button">
+      <button>주문 완료</button>
+    </div>
+  </body>
 </html>
