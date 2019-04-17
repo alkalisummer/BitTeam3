@@ -19,9 +19,21 @@
           autoOpen: false,
           modal: true,
           buttons: {
-            확인: function() {},
-            취소: function() {},
+              확인: function complete() 
+         {
+           var bread = $("#bread").text();
+           var topping = $("#topping").text();
+           var veggie = $("#veggie").text();
+           var sauce = $("#sauce").text();
+           var set = $("#set").text();
+           alert("주문이 완료되었습니다");
+           $(this).dialog("close");
           },
+              취소: function cancle() 
+         {
+            location.href = "Subway2.html"
+          },
+     },
         });
       });
     </script>
