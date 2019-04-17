@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-      $(function() {
+    $(function() {
         $("#accordion").accordion();
         $("input").checkboxradio();
         $("button").button();
@@ -71,7 +71,7 @@
         </fieldset>
       </div>
       <h3>추가 토핑</h3>
-      <div>
+      <div class="topping">
         <fieldset>
           <legend>종류</legend>
           <label for="checkbox-nested-1"
@@ -149,7 +149,7 @@
         </fieldset>
       </div>
       <h3>야채</h3>
-      <div>
+      <div class="veg">
         <fieldset>
           <legend>종류</legend>
           <label for="checkbox-nested-11"
@@ -227,7 +227,7 @@
         </fieldset>
       </div>
       <h3>소스</h3>
-      <div>
+      <div class="sauce">
         <fieldset>
           <legend>종류</legend>
           <label for="checkbox-nested-21"
@@ -305,7 +305,7 @@
         </fieldset>
       </div>
       <h3>세트선택</h3>
-      <div>
+      <div class="set">
         <fieldset>
           <legend>종류</legend>
           <label for="checkbox-nested-31"
@@ -387,9 +387,6 @@
       <p>야채: <span id="veggie"></span></p>
       <p>소스: <span id="sauce"></span></p>
       <p>세트: <span id="set"></span></p>
-    </div>
-    <div class="orders">
-      <h3>주문 내역</h3>
     </div>
     <script src="subway.js"></script>
   </body>
