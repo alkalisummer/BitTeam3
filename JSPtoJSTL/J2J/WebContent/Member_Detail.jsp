@@ -12,7 +12,8 @@
 %>
 
 <jsp:include page="common/head.jsp"/>
-<link rel="stylesheet" href="css/Detail_Table.css"/>
+<link rel="stylesheet" href="css/memberlist.css">
+<link rel="stylesheet" href="css/memberdetail.css">
 </head>
 <body>
 <jsp:include page="common/header.jsp"/>
@@ -36,7 +37,7 @@
         while (rs.next()) {
     %>
     <img src="images/user.png" style="float: left; margin: 5%;">
-    <table class="container" style="float: left; margin: 0 auto;">
+    <table class="container">
       <tr>
         <td>아이디</td>
         <td><%= rs.getString("id") %>
@@ -69,7 +70,7 @@
       </tr>
       <tr>
         <td colspan="2">
-          <a href="MemberList.jsp" style="color: white;">목록 가기</a>
+          <a href="MemberList.jsp" class="moveTo">목록 가기</a>
         </td>
       </tr>
     </table>

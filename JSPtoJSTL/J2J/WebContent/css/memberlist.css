@@ -1,0 +1,79 @@
+.container td a {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+}
+
+.container td a:hover {
+  text-decoration: underline;
+}
+
+.container td a:active {
+  color: steelblue;
+}
+
+.container td {
+  padding: 5px 10px;
+  height: 100%;
+}
+
+.container thead tr:first-child {
+  border: none;
+}
+
+.container {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 10% 0%;
+}
+
+.container tr {
+  border-bottom: 1px solid black;
+  height: 100%;
+  width: 100%;
+}
+
+.container tr:hover {
+  background-color: gainsboro;
+}
+
+.container th {
+  font-size: 1.5em;
+  padding-bottom: 20px;
+}
+
+input[type='submit'] {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 5px 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+input[name='search'] {
+  border: 1px solid #dfe6e9;
+  border-bottom: 1px solid black;
+  height: 30px;
+}
+
+input[name='search']:focus {
+  border: 1px solid #dfe6e9;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+hr {
+  margin: 10px 2% 10px 2%;
+  width: 95%;
+}
+
+form {
+  margin-left: 6%;
+}
+
+.moveTo {
+  padding: 5px 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+  margin: 10px;
+  font-size: 0.9em;
+}

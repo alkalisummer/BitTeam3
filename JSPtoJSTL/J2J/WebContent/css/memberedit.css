@@ -1,0 +1,15 @@
+.editable {
+  background-color: lemonchiffon;
+}
+
+.container tr:last-child {
+  border-bottom: none;
+}
+
+.container tr:last-child:hover {
+  background-color: inherit;
+}
+
+input[type='submit'] {
+  margin-right: 60%;
+}

@@ -1,0 +1,11 @@
+.container tr:last-child {
+  border-bottom: none;
+}
+
+.container tr:last-child:hover {
+  background-color: inherit;
+}
+
+.container tr:first-child {
+  border-bottom: 1px solid black;
+}

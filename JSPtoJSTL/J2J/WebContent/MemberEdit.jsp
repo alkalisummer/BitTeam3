@@ -7,9 +7,10 @@
          pageEncoding="UTF-8" %>
 
 <jsp:include page="common/head.jsp"/>
-<link rel="stylesheet" href="css/Detail_Table.css">
+<link rel="stylesheet" href="css/memberlist.css">
+<link rel="stylesheet" href="css/memberedit.css">
 </head>
-<body style="color: black;">
+<body>
 <jsp:include page="common/header.jsp"/>
 <div class="center-area">
   <jsp:include page="common/aside.jsp"/>
@@ -35,12 +36,12 @@
         rs.next();
     %>
     <form action="MemberEditok.jsp" method="post">
-      <div style="margin-top: 100px;">
+      <div>
         <table class="container">
           <tr>
             <td colspan="2">
-              <div style="text-align:center; margin-bottom:40px;">
-                <h1 style="color: white; font-family: sans-serif">수정하기</h1>
+              <div>
+                <h1>수정하기</h1>
               </div>
             </td>
           </tr>
@@ -58,15 +59,13 @@
           <tr>
             <td>이름</td>
             <td>
-              <input type="text" name="name" value="<%=rs.getString("name")%>"
-                     style="background-color: gold">
+              <input type="text" name="name" value="<%=rs.getString("name")%>" class="editable">
             </td>
           </tr>
           <tr>
             <td>나이</td>
             <td>
-              <input type="text" name="age" value="<%=rs.getString("age")%>"
-                     style="background-color: gold">
+              <input type="text" name="age" value="<%=rs.getString("age")%>" class="editable">
             </td>
           </tr>
           <tr>
@@ -82,14 +81,13 @@
           <tr>
             <td>이메일</td>
             <td>
-              <input type="text" name="email" value="<%=rs.getString("email")%>"
-                     style="background-color: gold">
+              <input type="text" name="email" value="<%=rs.getString("email")%>" class="editable">
             </td>
           </tr>
           <tr>
             <td colspan="2">
               <input type="submit" value="수정하기">
-              <a href='MemberList.jsp'>리스트 이동</a>
+              <a href='MemberList.jsp' class="moveTo">리스트 이동</a>
             </td>
         </table>
       </div>
