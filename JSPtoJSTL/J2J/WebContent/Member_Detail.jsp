@@ -4,6 +4,7 @@
 <%@page import="java.sql.Connection" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
   if (session.getAttribute("userid") == null || !session.getAttribute("userid").equals("admin")) {
     //강제로 다른 페이지 이동
@@ -32,40 +33,64 @@
         pstmt = conn.prepareStatement(sql);
 
         pstmt.setString(1, id);
+      
         rs = pstmt.executeQuery();
-
-        while (rs.next()) {
+      
+      int row = 0;
+      while (rs.next()) {
+      	row = rs.getRow();
+      }
+      
+      rs = pstmt.executeQuery();
+        	
+        	
     %>
+    
     <img src="images/user.png" style="float: left; margin: 5%;">
     <table class="container">
       <tr>
+      <c:forEach var="i" begin="1" end="<%= row%>">
+       <c:set var="next" value="<%= rs.next()%>"/>
+        <c:set var="id" value="<%= rs.getString(\"id\")%>" />
+        <c:set var="pwd" value="<%= rs.getString(\"pwd\")%>" />
+         <c:set var="age" value="<%= rs.getString(\"age\")%>" />
+          <c:set var="gender" value="<%= rs.getString(\"gender\")%>" />
+           <c:set var="email" value="<%= rs.getString(\"email\")%>" />
+            <c:set var="name" value="<%= rs.getString(\"name\")%>" />
+        <tr>
+     
         <td>아이디</td>
-        <td><%= rs.getString("id") %>
+      <%--   <td><%= rs.getString("id") %> --%>
+         <td>${id}
         </td>
       </tr>
       <tr>
         <td>비밀번호</td>
-        <td><%= rs.getString("pwd") %>
+      
+        <td>${pwd}
         </td>
       </tr>
       <tr>
         <td>이름</td>
-        <td><%= rs.getString("name") %>
+       
+        <td>${name}
         </td>
       </tr>
       <tr>
         <td>나이</td>
-        <td><%= rs.getString("age") %>
+         
+        <td>${age}
         </td>
       </tr>
       <tr>
         <td>성별</td>
-        <td><%= rs.getString("gender") %>
+         
+        <td>${gender}
         </td>
       </tr>
       <tr>
         <td>이메일</td>
-        <td><%= rs.getString("email") %>
+        <td>${email}
         </td>
       </tr>
       <tr>
@@ -73,9 +98,10 @@
           <a href="MemberList.jsp" class="moveTo">목록 가기</a>
         </td>
       </tr>
+      </c:forEach> 
     </table>
     <%
-        }
+        
       } catch (Exception e) {
         e.printStackTrace();
       } finally {

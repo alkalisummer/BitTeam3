@@ -52,12 +52,13 @@ function showDialog() {
   let vegarray = [];
   let saucearray = [];
   let setarray = [];
-  for (var input of radio) {
-    if (input.checked) {
-      bread = input.value;
+  for (var input in radio) {
+       console.log(radio[input].checked);
+    if (radio[input].checked){
+      bread = radio[input].value;
     }
   }
-
+      console.log(radio);
   for (var input of topping) {
     if (input.checked) {
       toparray.push(input.value);
