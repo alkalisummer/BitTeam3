@@ -4,6 +4,7 @@
 <%@page import="java.sql.Connection" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
   if (session.getAttribute("userid") == null || !session.getAttribute("userid").equals("admin")) {
     out.print("<script>location.href = 'Login.jsp'</script>");
@@ -11,7 +12,7 @@
   }
 %>
 <jsp:include page="common/head.jsp"/>
-<link rel="stylesheet" href="css/Detail_Table.css">
+<link rel="stylesheet" href="css/memberlist.css">
 </head>
 <body>
 <jsp:include page="common/header.jsp"/>
@@ -28,32 +29,35 @@
         String sql = "select id, ip from koreamember";
         pstmt = conn.prepareStatement(sql);
         rs = pstmt.executeQuery();
+        
+        int row = 0;
+        while (rs.next()) {
+        	row = rs.getRow();
+        }
+        
+        rs = pstmt.executeQuery();
     %>
     <table class="container" style="height: 100px; margin-left: auto; margin-right: auto">
       <tr>
         <th colspan="4">회원리스트</th>
       </tr>
-      <%
-        while (rs.next()) {
-      %>
-      <tr>
-        <td>
-          <a href='Member_Detail.jsp?id=<%=rs.getString("id")%>'><%=rs.getString("id")%>
-          </a>
-        </td>
-        <td>
-          <%=rs.getString("ip")%>
-        </td>
-        <td class="delmod">
-          <a href='Member_Delete.jsp?id=<%=rs.getString("id")%>'>[삭제]</a>
-        </td>
-        <td class="delmod">
-          <a href='MemberEdit.jsp?id=<%=rs.getString("id")%>'>[수정]</a>
-        </td>
-      </tr>
-      <%
-        }
-      %>
+      <c:forEach var="i" begin="1" end="<%= row%>">
+        <c:set var="next" value="<%= rs.next()%>"/>
+        <c:set var="id" value="<%= rs.getString(\"id\")%>" />
+        <c:set var="ip" value="<%= rs.getString(\"ip\")%>" />
+        <tr>
+          <td>
+            <a href='Member_Detail.jsp?id=${id}'>${id}</a>
+          </td>
+          <td>${ip}</td>
+          <td class="delmod">
+            <a href='Member_Delete.jsp?id=${id}'>[삭제]</a>
+          </td>
+          <td class="delmod">
+            <a href='MemberEdit.jsp?id=${id}'>[수정]</a>
+          </td>
+        </tr>
+      </c:forEach> 
     </table>
     <hr>
     <form action="MemberSearch.jsp" method="post">
