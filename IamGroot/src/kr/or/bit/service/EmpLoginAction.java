@@ -14,7 +14,7 @@ public class EmpLoginAction implements Action {
     String id = request.getParameter("id");
     String pwd = request.getParameter("password");
     
-    System.out.println(id + pwd);
+    // System.out.println(id + pwd);
     
     EmpDao dao = new EmpDao();
     boolean login = dao.login(id, pwd);
@@ -24,8 +24,7 @@ public class EmpLoginAction implements Action {
     
     if (login) {
       msg = id + "님, 환영합니다.";
-      url = "/list.do";
-      
+      url = "list.do";
     } else {
       msg = "일치하는 회원 정보가 없습니다.";
       url = "index.html";

@@ -34,6 +34,9 @@ public class EmpController extends HttpServlet {
     String requestUri = request.getRequestURI();
     String contextPath = request.getContextPath();
     String urlCommand = requestUri.substring(contextPath.length());
+    System.out.println(requestUri);
+    System.out.println(contextPath);
+    System.out.println(urlCommand);
     
     Action action = null;
     ActionForward forward = null;
@@ -43,6 +46,7 @@ public class EmpController extends HttpServlet {
     } else if (urlCommand.equals("/list.do")) {  // 조회
       action = new EmpListAction(); 
       forward = action.execute(request, response);
+      System.out.println("리스트 액션");
     } else if (urlCommand.equals("/register.do")) {
       action = new EmpRegisterAction();
       forward = action.execute(request, response);

@@ -47,7 +47,7 @@ public class EmpDao {
     }
   }
 
-  public List<Emp> selectAll() throws SQLException {
+  public List<Emp> selectAll(){
     List<Emp> list = new ArrayList<>();
     String sql = "select * from emp";
 
@@ -72,15 +72,25 @@ public class EmpDao {
     } catch (Exception e) {
       System.out.println(e.getMessage());
     } finally {
-      rs.close();
-      pstmt.close();
-      conn.close();
+      try {
+        if (rs != null) {
+          rs.close();
+        }
+        if (pstmt != null) {
+          pstmt.close();
+        }
+        if (conn != null) {
+          conn.close();
+        }
+      } catch (Exception e) {
+        System.out.println(e.getMessage());
+      }
     }
 
     return list;
   }
 
-  public Emp selectByEmpno(int empno) throws SQLException {
+  public Emp selectByEmpno(int empno) {
     Emp emp = null;
     String sql = "select * from emp where empno = ?";
 
@@ -105,15 +115,25 @@ public class EmpDao {
     } catch (Exception e) {
       System.out.println(e.getMessage());
     } finally {
-      rs.close();
-      pstmt.close();
-      conn.close();
+      try {
+        if (rs != null) {
+          rs.close();
+        }
+        if (pstmt != null) {
+          pstmt.close();
+        }
+        if (conn != null) {
+          conn.close();
+        }
+      } catch (Exception e) {
+        System.out.println(e.getMessage());
+      }
     }
 
     return emp;
   }
 
-  public Emp selectByDeptno(int deptno) throws SQLException {
+  public Emp selectByDeptno(int deptno) {
     Emp emp = null;
     String sql = "select * from emp where deptno = ?";
 
@@ -138,9 +158,19 @@ public class EmpDao {
     } catch (Exception e) {
       System.out.println(e.getMessage());
     } finally {
-      rs.close();
-      pstmt.close();
-      conn.close();
+      try {
+        if (rs != null) {
+          rs.close();
+        }
+        if (pstmt != null) {
+          pstmt.close();
+        }
+        if (conn != null) {
+          conn.close();
+        }
+      } catch (Exception e) {
+        System.out.println(e.getMessage());
+      }
     }
 
     return emp;
