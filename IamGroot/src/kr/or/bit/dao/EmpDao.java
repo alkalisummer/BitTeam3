@@ -329,7 +329,36 @@ public class EmpDao {
 
 	}
 
-	public void uploadFace(int empno) {
+	public int uploadFace(EmpFace empface) {
+		// 1. 사진파일 올리기 
+		// 2. 사진 url 을 얻는다. 
+		// 3. 그 url을 테이블에 업데이트 방식으로 넣는다.  
+		int row = 0;
+		String sql = "update empface set url=? where empno = ?";
+
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, empface.getUrl());
+			pstmt.setInt(2, empface.getEmpno());
+			
+
+			row = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return row;
+		
+		
+		
 
 	}
 
