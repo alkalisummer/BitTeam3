@@ -8,13 +8,18 @@
 <title>사원 목록</title>
 </head>
 <body>
-  <h1>사원 목록</h1>
-  <form action="listSelect.do" method="POST">
+  <header><h1>사원 목록</h1></header>
+  <aside>
+    <ul>
+      <li><a href="register.html">사원 등록</a></li>
+    </ul>
+  </aside>
+  <form action="search" method="post">
     <select name="orderBy" id="orderSelect">
       <option value="empno">사원 번호</option>
       <option value="deptno">부서 번호</option>
     </select> 
-    <input type="text" name="no" id="numberSelect" />
+    <input type="text" name="number" id="numberSelect" /> 
     <input type="submit" value="검색하기" />
   </form>
   <table>
@@ -27,8 +32,8 @@
       <th>연봉</th>
       <th>커미션</th>
       <th>부서번호</th>
-    </thead>
-    <tbody>
+    </thead>  
+    <tbody id="searchResult">
       <c:forEach var="emp" items="${requestScope.list}">
         <tr>
           <td>${emp.empno}</td>
@@ -44,6 +49,6 @@
         </tr>
       </c:forEach>
     </tbody>
-  </table>
+  </table> 
 </body>
 </html>

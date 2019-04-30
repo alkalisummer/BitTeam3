@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <form action="list.do">
+  <form action="update.do" method="POST">
     Empno : <input type="text" name="empno" value="${emp.empno}" readonly><br>
 	Ename : <input type="text" name="ename" value="${emp.ename}"><br>
   	Job : <input type="text" name="job" value="${emp.job}"><br>

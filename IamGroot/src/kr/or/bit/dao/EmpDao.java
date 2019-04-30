@@ -49,7 +49,7 @@ public class EmpDao {
 
   public List<Emp> selectAll(){
     List<Emp> list = new ArrayList<>();
-    String sql = "select * from emp";
+    String sql = "select * from copyemp";
 
     try {
       conn = ds.getConnection();
@@ -92,7 +92,7 @@ public class EmpDao {
 
   public Emp selectByEmpno(int empno) {
     Emp emp = null;
-    String sql = "select * from emp where empno = ?";
+    String sql = "select * from copyemp where empno = ?";
 
     try {
       conn = ds.getConnection();
@@ -132,10 +132,10 @@ public class EmpDao {
 
     return emp;
   }
-
-  public Emp selectByDeptno(int deptno) {
-    Emp emp = null;
-    String sql = "select * from emp where deptno = ?";
+  
+  public List<Emp> selectByDeptno(int deptno) {
+    List<Emp> empList = new ArrayList<Emp>();
+    String sql = "select * from copyemp where deptno = ?";
 
     try {
       conn = ds.getConnection();
@@ -143,8 +143,8 @@ public class EmpDao {
       pstmt.setInt(1, deptno);
       rs = pstmt.executeQuery();
 
-      if (rs.next()) {
-        emp = new Emp();
+      while (rs.next()) {
+        Emp emp = new Emp();
         emp.setEmpno(rs.getInt("empno"));
         emp.setEname(rs.getString("ename"));
         emp.setJob(rs.getString("job"));
@@ -153,7 +153,7 @@ public class EmpDao {
         emp.setSal(rs.getInt("sal"));
         emp.setComm(rs.getInt("comm"));
         emp.setDeptno(rs.getInt("deptno"));
-
+        empList.add(emp);
       }
     } catch (Exception e) {
       System.out.println(e.getMessage());
@@ -173,12 +173,12 @@ public class EmpDao {
       }
     }
 
-    return emp;
+    return empList;
   }
 
   public int updateEmp(Emp emp) {
     int row = 0;
-    String sql = "update emp set ename = ?, job = ?, mgr = ?, sal = ?, comm = ?, deptno = ? where empno = ?";
+    String sql = "update copyemp set ename = ?, job = ?, mgr = ?, sal = ?, comm = ?, deptno = ? where empno = ?";
 
     try {
       conn = ds.getConnection();
@@ -207,7 +207,7 @@ public class EmpDao {
 
   public int insertEmp(Emp emp) {
     int row = 0;
-    String sql = "insert into emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) values (?, ?, ?, ?, ?, ?, ?, ?)";
+    String sql = "insert into copyemp (empno, ename, job, mgr, hiredate, sal, comm, deptno) values (?, ?, ?, ?, ?, ?, ?, ?)";
 
     try {
       conn = ds.getConnection();
@@ -237,7 +237,7 @@ public class EmpDao {
 
   public int deleteEmp(int empno) {
     int row = 0;
-    String sql = "delete from emp where empno = ?";
+    String sql = "delete from copyemp where empno = ?";
 
     try {
       conn = ds.getConnection();
