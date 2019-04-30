@@ -13,6 +13,7 @@ import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 import kr.or.bit.service.EmpDeleteAction;
 import kr.or.bit.service.EmpListAction;
+import kr.or.bit.service.EmpLoadAction;
 import kr.or.bit.service.EmpLoginAction;
 import kr.or.bit.service.EmpRegisterAction;
 import kr.or.bit.service.EmpUpdateAction;
@@ -35,9 +36,6 @@ public class EmpController extends HttpServlet {
     String requestUri = request.getRequestURI();
     String contextPath = request.getContextPath();
     String urlCommand = requestUri.substring(contextPath.length());
-    System.out.println(requestUri);
-    System.out.println(contextPath);
-    System.out.println(urlCommand);
     
     Action action = null;
     ActionForward forward = null;
@@ -63,6 +61,9 @@ public class EmpController extends HttpServlet {
     } else if (urlCommand.equals("/upload.do")) {
       action = new EmpUploadAction();
       forward = action.execute(request, response);
+    } else if (urlCommand.equals("/load.do")) {
+    	action = new EmpLoadAction();
+        forward = action.execute(request, response);
     }
     
     if (forward != null) {

@@ -13,6 +13,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import kr.or.bit.dto.Emp;
+import kr.or.bit.dto.EmpFace;
 
 // CRUD 작업
 // DB서버 통신 > CRUD method 제공
@@ -33,264 +34,303 @@ import kr.or.bit.dto.Emp;
 // public List<Memo> selectMemo() {}
 // List<Memo> list = new ArrayList<>();
 public class EmpDao {
-  private Connection conn;
-  private PreparedStatement pstmt;
-  private ResultSet rs;
-  private DataSource ds;
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	private DataSource ds;
 
-  public EmpDao() {
-    try {
-      Context context = new InitialContext(); // 이름 기반 검색
-      ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle"); // jdbc/oracle 이름의 pool을 찾음
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    }
-  }
+	public EmpDao() {
+		try {
+			Context context = new InitialContext(); // 이름 기반 검색
+			ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle"); // jdbc/oracle 이름의 pool을 찾음
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
-  public List<Emp> selectAll(){
-    List<Emp> list = new ArrayList<>();
-    String sql = "select * from copyemp";
+	public List<Emp> selectAll() {
+		List<Emp> list = new ArrayList<>();
+		String sql = "select * from copyemp";
 
-    try {
-      conn = ds.getConnection();
-      pstmt = conn.prepareStatement(sql);
-      rs = pstmt.executeQuery();
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
 
-      while (rs.next()) {
-        Emp emp = new Emp();
-        emp.setEmpno(rs.getInt("empno"));
-        emp.setEname(rs.getString("ename"));
-        emp.setJob(rs.getString("job"));
-        emp.setMgr(rs.getInt("mgr"));
-        emp.setHiredate(rs.getDate("hiredate"));
-        emp.setSal(rs.getInt("sal"));
-        emp.setComm(rs.getInt("comm"));
-        emp.setDeptno(rs.getInt("deptno"));
+			while (rs.next()) {
+				Emp emp = new Emp();
+				emp.setEmpno(rs.getInt("empno"));
+				emp.setEname(rs.getString("ename"));
+				emp.setJob(rs.getString("job"));
+				emp.setMgr(rs.getInt("mgr"));
+				emp.setHiredate(rs.getDate("hiredate"));
+				emp.setSal(rs.getInt("sal"));
+				emp.setComm(rs.getInt("comm"));
+				emp.setDeptno(rs.getInt("deptno"));
 
-        list.add(emp);
-      }
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    } finally {
-      try {
-        if (rs != null) {
-          rs.close();
-        }
-        if (pstmt != null) {
-          pstmt.close();
-        }
-        if (conn != null) {
-          conn.close();
-        }
-      } catch (Exception e) {
-        System.out.println(e.getMessage());
-      }
-    }
+				list.add(emp);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
 
-    return list;
-  }
+		return list;
+	}
 
-  public Emp selectByEmpno(int empno) {
-    Emp emp = null;
-    String sql = "select * from copyemp where empno = ?";
+	public Emp selectByEmpno(int empno) {
+		Emp emp = null;
+		String sql = "select * from copyemp where empno = ?";
 
-    try {
-      conn = ds.getConnection();
-      pstmt = conn.prepareStatement(sql);
-      pstmt.setInt(1, empno);
-      rs = pstmt.executeQuery();
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, empno);
+			rs = pstmt.executeQuery();
 
-      if (rs.next()) {
-        emp = new Emp();
-        emp.setEmpno(rs.getInt("empno"));
-        emp.setEname(rs.getString("ename"));
-        emp.setJob(rs.getString("job"));
-        emp.setMgr(rs.getInt("mgr"));
-        emp.setHiredate(rs.getDate("hiredate"));
-        emp.setSal(rs.getInt("sal"));
-        emp.setComm(rs.getInt("comm"));
-        emp.setDeptno(rs.getInt("deptno"));
+			if (rs.next()) {
+				emp = new Emp();
+				emp.setEmpno(rs.getInt("empno"));
+				emp.setEname(rs.getString("ename"));
+				emp.setJob(rs.getString("job"));
+				emp.setMgr(rs.getInt("mgr"));
+				emp.setHiredate(rs.getDate("hiredate"));
+				emp.setSal(rs.getInt("sal"));
+				emp.setComm(rs.getInt("comm"));
+				emp.setDeptno(rs.getInt("deptno"));
 
-      }
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    } finally {
-      try {
-        if (rs != null) {
-          rs.close();
-        }
-        if (pstmt != null) {
-          pstmt.close();
-        }
-        if (conn != null) {
-          conn.close();
-        }
-      } catch (Exception e) {
-        System.out.println(e.getMessage());
-      }
-    }
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
 
-    return emp;
-  }
-  
-  public List<Emp> selectByDeptno(int deptno) {
-    List<Emp> empList = new ArrayList<Emp>();
-    String sql = "select * from copyemp where deptno = ?";
+		return emp;
+	}
 
-    try {
-      conn = ds.getConnection();
-      pstmt = conn.prepareStatement(sql);
-      pstmt.setInt(1, deptno);
-      rs = pstmt.executeQuery();
+	public List<Emp> selectByDeptno(int deptno) {
+		List<Emp> empList = new ArrayList<Emp>();
+		String sql = "select * from copyemp where deptno = ?";
 
-      while (rs.next()) {
-        Emp emp = new Emp();
-        emp.setEmpno(rs.getInt("empno"));
-        emp.setEname(rs.getString("ename"));
-        emp.setJob(rs.getString("job"));
-        emp.setMgr(rs.getInt("mgr"));
-        emp.setHiredate(rs.getDate("hiredate"));
-        emp.setSal(rs.getInt("sal"));
-        emp.setComm(rs.getInt("comm"));
-        emp.setDeptno(rs.getInt("deptno"));
-        empList.add(emp);
-      }
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    } finally {
-      try {
-        if (rs != null) {
-          rs.close();
-        }
-        if (pstmt != null) {
-          pstmt.close();
-        }
-        if (conn != null) {
-          conn.close();
-        }
-      } catch (Exception e) {
-        System.out.println(e.getMessage());
-      }
-    }
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, deptno);
+			rs = pstmt.executeQuery();
 
-    return empList;
-  }
+			while (rs.next()) {
+				Emp emp = new Emp();
+				emp.setEmpno(rs.getInt("empno"));
+				emp.setEname(rs.getString("ename"));
+				emp.setJob(rs.getString("job"));
+				emp.setMgr(rs.getInt("mgr"));
+				emp.setHiredate(rs.getDate("hiredate"));
+				emp.setSal(rs.getInt("sal"));
+				emp.setComm(rs.getInt("comm"));
+				emp.setDeptno(rs.getInt("deptno"));
+				empList.add(emp);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
 
-  public int updateEmp(Emp emp) {
-    int row = 0;
-    String sql = "update copyemp set ename = ?, job = ?, mgr = ?, sal = ?, comm = ?, deptno = ? where empno = ?";
+		return empList;
+	}
 
-    try {
-      conn = ds.getConnection();
-      pstmt = conn.prepareStatement(sql);
-      pstmt.setString(1, emp.getEname());
-      pstmt.setString(2, emp.getJob());
-      pstmt.setInt(3, emp.getMgr());
-      pstmt.setInt(4, emp.getSal());
-      pstmt.setInt(5, emp.getComm());
-      pstmt.setInt(6, emp.getDeptno());
-      pstmt.setInt(7, emp.getEmpno());
+	public int updateEmp(Emp emp) {
+		int row = 0;
+		String sql = "update copyemp set ename = ?, job = ?, mgr = ?, sal = ?, comm = ?, deptno = ? where empno = ?";
 
-      row = pstmt.executeUpdate();
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    } finally {
-      try {
-        pstmt.close();
-        conn.close();
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
-    }
-    return row;
-  }
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, emp.getEname());
+			pstmt.setString(2, emp.getJob());
+			pstmt.setInt(3, emp.getMgr());
+			pstmt.setInt(4, emp.getSal());
+			pstmt.setInt(5, emp.getComm());
+			pstmt.setInt(6, emp.getDeptno());
+			pstmt.setInt(7, emp.getEmpno());
 
-  public int insertEmp(Emp emp) {
-    int row = 0;
-    String sql = "insert into copyemp (empno, ename, job, mgr, hiredate, sal, comm, deptno) values (?, ?, ?, ?, ?, ?, ?, ?)";
+			row = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return row;
+	}
 
-    try {
-      conn = ds.getConnection();
-      pstmt = conn.prepareStatement(sql);
-      pstmt.setInt(1, emp.getEmpno());
-      pstmt.setString(2, emp.getEname());
-      pstmt.setString(3, emp.getJob());
-      pstmt.setInt(4, emp.getMgr());
-      pstmt.setDate(5, emp.getHiredate());
-      pstmt.setInt(6, emp.getSal());
-      pstmt.setInt(7, emp.getComm());
-      pstmt.setInt(8, emp.getDeptno());
+	public int insertEmp(Emp emp) {
+		int row = 0;
+		String sql = "insert into copyemp (empno, ename, job, mgr, hiredate, sal, comm, deptno) values (?, ?, ?, ?, ?, ?, ?, ?)";
 
-      row = pstmt.executeUpdate();
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    } finally {
-      try {
-        pstmt.close();
-        conn.close();
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
-    }
-    return row;
-  }
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, emp.getEmpno());
+			pstmt.setString(2, emp.getEname());
+			pstmt.setString(3, emp.getJob());
+			pstmt.setInt(4, emp.getMgr());
+			pstmt.setDate(5, emp.getHiredate());
+			pstmt.setInt(6, emp.getSal());
+			pstmt.setInt(7, emp.getComm());
+			pstmt.setInt(8, emp.getDeptno());
 
-  public int deleteEmp(int empno) {
-    int row = 0;
-    String sql = "delete from copyemp where empno = ?";
+			row = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return row;
+	}
 
-    try {
-      conn = ds.getConnection();
-      pstmt = conn.prepareStatement(sql);
-      pstmt.setInt(1, empno);
+	public int deleteEmp(int empno) {
+		int row = 0;
+		String sql = "delete from copyemp where empno = ?";
 
-      row = pstmt.executeUpdate();
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    } finally {
-      try {
-        pstmt.close();
-        conn.close();
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
-    }
-    return row;
-  }
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, empno);
 
-  public boolean login(String id, String password) {
-    boolean login = false;
-    String sql = "select * from adminlist where userid = ? and pwd = ?";
+			row = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return row;
+	}
 
-    try {
-      conn = ds.getConnection();
-      pstmt = conn.prepareStatement(sql);
-      pstmt.setString(1, id);
-      pstmt.setString(2, password);
-      rs = pstmt.executeQuery();
-      
-      if (rs.next()) {
-        login = true;
-      }
+	public boolean login(String id, String password) {
+		boolean login = false;
+		String sql = "select * from adminlist where userid = ? and pwd = ?";
 
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    } finally {
-      try {
-        if (rs != null) {
-          rs.close();
-        }
-        if (pstmt != null) {
-          pstmt.close();
-        }
-        if (conn != null) {
-          conn.close();
-        }
-      } catch (Exception e) {
-        System.out.println(e.getMessage());
-      }
-    }
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, password);
+			rs = pstmt.executeQuery();
 
-    return login;
-  }
+			if (rs.next()) {
+				login = true;
+			}
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+
+		return login;
+	}
+
+	public EmpFace loadFace(int empno) {
+		EmpFace empface = new EmpFace();
+		String sql = "select empno, nvl(url, '') as url from empface where empno = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, empno);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				empface.setEmpno(rs.getInt("empno"));
+				empface.setUrl(rs.getString("url"));
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return empface;
+
+	}
+
+	public void uploadFace(int empno) {
+
+	}
+
 }

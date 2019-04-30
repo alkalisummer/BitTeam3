@@ -68,7 +68,7 @@
       <c:forEach var="emp" items="${requestScope.list}">
         <tr>
           <td>${emp.empno}</td>
-          <td><a href = "upload.do">${emp.ename}</a></td>
+          <td><a href = "load.do?empno=${emp.empno}">${emp.ename}</a></td>
           <td>${emp.job}</td>
           <td>${emp.mgr}</td>
           <td>${emp.hiredate}</td>
