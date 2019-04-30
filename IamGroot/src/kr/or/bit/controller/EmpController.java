@@ -16,6 +16,7 @@ import kr.or.bit.service.EmpListAction;
 import kr.or.bit.service.EmpLoginAction;
 import kr.or.bit.service.EmpRegisterAction;
 import kr.or.bit.service.EmpUpdateAction;
+import kr.or.bit.service.EmpUpdatePageAction;
 import kr.or.bit.service.EmpUploadAction;
 
 @WebServlet("*.do")
@@ -50,7 +51,10 @@ public class EmpController extends HttpServlet {
     } else if (urlCommand.equals("/register.do")) {
       action = new EmpRegisterAction();
       forward = action.execute(request, response);
-    } else if (urlCommand.equals("/update.do")) {
+    } else if (urlCommand.equals("/updatePage.do")) {
+      action = new EmpUpdatePageAction();
+      forward = action.execute(request, response);
+    } else if (urlCommand.equals("/update.do")){
       action = new EmpUpdateAction();
       forward = action.execute(request, response);
     } else if (urlCommand.equals("/delete.do")) {

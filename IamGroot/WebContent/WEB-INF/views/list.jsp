@@ -39,7 +39,7 @@
           <td>${emp.sal}</td>
           <td>${emp.comm}</td>
           <td>${emp.deptno}</td>
-          <td><a href="update.do?empno=${emp.empno}">수정</a></td>
+          <td><a href="updatePage.do?empno=${emp.empno}">수정</a></td>
           <td><a href="delete.do?empno=${emp.empno}">삭제</a></td>
         </tr>
       </c:forEach>
