@@ -32,10 +32,10 @@ public class EmpUpdateAction implements Action {
     
     if (row > 0) {
       msg = "수정 성공";
-      url = "list.do";
+      url = "main/list.do";
     } else {
       msg = "수정 실패";
-      url = "updatePage.do";
+      url = "main/updatePage.do";
     }
     
     request.setAttribute("msg", msg);

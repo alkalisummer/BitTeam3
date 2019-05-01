@@ -17,60 +17,56 @@ import kr.or.bit.dto.EmpFace;
 
 public class EmpUploadAction implements Action {
 
-	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
-		String uploadpath = request.getServletContext().getRealPath("images");
-		System.out.println(uploadpath);
+  @Override
+  public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+    HttpSession session = request.getSession();
+    String uploadpath = request.getServletContext().getRealPath("images");
+    System.out.println(uploadpath);
 
-		int size = 1024 * 1024 * 10;
+    int size = 1024 * 1024 * 10;
 
-		String filename1 = "";
-		String orifilename1 = "";
-		
-	    ActionForward forward = null;
+    String filename1 = "";
+    String orifilename1 = "";
 
-		try {
-			MultipartRequest multi = new MultipartRequest(request, uploadpath, size, "UTF-8",
-					new DefaultFileRenamePolicy());
-			      Enumeration filenames = multi.getFileNames();
-			     String file =(String)filenames.nextElement();
-			      String face = multi.getFilesystemName(file);
-			      int empno =  Integer.parseInt(multi.getParameter("empno"));
-			     System.out.println(face + empno);
-			     
-			     EmpFace empface = new EmpFace();
-			     empface.setEmpno(empno);
-			     empface.setUrl(face);
-			     
-			     EmpDao dao = new EmpDao();
-			   int row = dao.uploadFace(empface);
-			   
-			    String msg ="";
-			    String url ="load.do?empno=" + empno;
-			   
-			    if(row>0) {
-			    	msg = "업로드 성공";
-			    }else {
-			    	msg="업로드 실패";
-			    }
-			    
-			   request.setAttribute("msg" , msg);
-			   request.setAttribute("url" , url);
-			   
-			   forward = new ActionForward();
-			   forward.setRedirect(false);
-			   forward.setPath("/WEB-INF/views/redirect.jsp");
-			   
-			     
-			     
-			       
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    ActionForward forward = null;
 
-		return forward;
-	}
+    try {
+      MultipartRequest multi = new MultipartRequest(request, uploadpath, size, "UTF-8", new DefaultFileRenamePolicy());
+      Enumeration filenames = multi.getFileNames();
+      String file = (String) filenames.nextElement();
+      String face = multi.getFilesystemName(file);
+      int empno = Integer.parseInt(multi.getParameter("empno"));
+      System.out.println(face + empno);
+
+      EmpFace empface = new EmpFace();
+      empface.setEmpno(empno);
+      empface.setUrl(face);
+
+      EmpDao dao = new EmpDao();
+      int row = dao.uploadFace(empface);
+
+      String msg = "";
+      String url = "main/load.do?empno=" + empno;
+
+      if (row > 0) {
+        msg = "업로드 성공";
+      } else {
+        msg = "업로드 실패";
+      }
+
+      request.setAttribute("msg", msg);
+      request.setAttribute("url", url);
+
+      forward = new ActionForward();
+      forward.setRedirect(false);
+      forward.setPath("/WEB-INF/views/redirect.jsp");
+
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+    return forward;
+  }
 
 }
