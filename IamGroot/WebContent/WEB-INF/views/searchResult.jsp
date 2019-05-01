@@ -6,14 +6,14 @@
 <c:forEach var="emp" items="${list}">
 <tr>
   <td>${emp.empno}</td>
-  <td>${emp.ename}</td>
+  <td><a href = "load.do?empno=${emp.empno}" class = "upload">${emp.ename}</a></td>
   <td>${emp.job}</td>
   <td>${emp.mgr}</td>
   <td>${emp.hiredate}</td>
   <td>${emp.sal}</td>
   <td>${emp.comm}</td>
   <td>${emp.deptno}</td>
-  <td><a href="updatePage.do?empno=${emp.empno}">수정</a></td>
-  <td><a href="delete.do?empno=${emp.empno}">삭제</a></td>
+  <td><a class = "emplink" href="updatePage.do?empno=${emp.empno}">수정</a></td>
+  <td><a class = "emplink" href="delete.do?empno=${emp.empno}">삭제</a></td>
 </tr>
 </c:forEach>
