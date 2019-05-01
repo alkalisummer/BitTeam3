@@ -30,42 +30,43 @@ public class EmpController extends HttpServlet {
 
   private void doProcess(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    
+
     request.setCharacterEncoding("UTF-8");
-    
+
     String requestUri = request.getRequestURI();
     String contextPath = request.getContextPath();
     String urlCommand = requestUri.substring(contextPath.length());
-    
+    System.out.println(urlCommand);
+
     Action action = null;
     ActionForward forward = null;
     if (urlCommand.equals("/login.do")) {
-      action = new EmpLoginAction(); 
+      action = new EmpLoginAction();
       forward = action.execute(request, response);
-    } else if (urlCommand.equals("/list.do")) {  // 조회
-      action = new EmpListAction(); 
+    } else if (urlCommand.equals("/main/list.do")) { // 조회
+      action = new EmpListAction();
       forward = action.execute(request, response);
       System.out.println("리스트 액션");
-    } else if (urlCommand.equals("/register.do")) {
+    } else if (urlCommand.equals("/main/register.do")) {
       action = new EmpRegisterAction();
       forward = action.execute(request, response);
-    } else if (urlCommand.equals("/updatePage.do")) {
+    } else if (urlCommand.equals("/main/updatePage.do")) {
       action = new EmpUpdatePageAction();
       forward = action.execute(request, response);
-    } else if (urlCommand.equals("/update.do")){
+    } else if (urlCommand.equals("/main/update.do")) {
       action = new EmpUpdateAction();
       forward = action.execute(request, response);
-    } else if (urlCommand.equals("/delete.do")) {
+    } else if (urlCommand.equals("/main/delete.do")) {
       action = new EmpDeleteAction();
       forward = action.execute(request, response);
-    } else if (urlCommand.equals("/upload.do")) {
+    } else if (urlCommand.equals("/main/upload.do")) {
       action = new EmpUploadAction();
       forward = action.execute(request, response);
-    } else if (urlCommand.equals("/load.do")) {
-    	action = new EmpLoadAction();
-        forward = action.execute(request, response);
+    } else if (urlCommand.equals("/main/load.do")) {
+      action = new EmpLoadAction();
+      forward = action.execute(request, response);
     }
-    
+
     if (forward != null) {
       if (forward.isRedirect()) {
         response.sendRedirect(forward.getPath());
