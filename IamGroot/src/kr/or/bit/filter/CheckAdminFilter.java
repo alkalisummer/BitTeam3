@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-@WebFilter("/main/*")
+@WebFilter(urlPatterns = {"/main/*", "register.html"})
 public class CheckAdminFilter implements Filter {
   public CheckAdminFilter() {
   }
