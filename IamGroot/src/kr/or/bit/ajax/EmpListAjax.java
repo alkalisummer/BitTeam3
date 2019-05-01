@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.or.bit.dao.EmpDao;
 import kr.or.bit.dto.Emp;
 
-@WebServlet("/search")
+@WebServlet("/main/search")
 public class EmpListAjax extends HttpServlet {
   private static final long serialVersionUID = 1L;
 

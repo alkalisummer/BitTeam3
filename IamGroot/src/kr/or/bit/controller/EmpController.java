@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.service.EmpChartAction;
 import kr.or.bit.service.EmpDeleteAction;
 import kr.or.bit.service.EmpListAction;
 import kr.or.bit.service.EmpLoadAction;
@@ -64,6 +65,9 @@ public class EmpController extends HttpServlet {
       forward = action.execute(request, response);
     } else if (urlCommand.equals("/main/load.do")) {
       action = new EmpLoadAction();
+      forward = action.execute(request, response);
+    } else if (urlCommand.equals("/main/chart.do")) {
+      action = new EmpChartAction();
       forward = action.execute(request, response);
     }
 
