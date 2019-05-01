@@ -14,6 +14,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import kr.or.bit.dto.Emp;
 import kr.or.bit.dto.EmpFace;
 
@@ -358,29 +361,21 @@ public class EmpDao {
 		}
 		
 		return row;
-		
-		
-		
-
 	}
 	
 	
-	public Map<String, Integer> countByDeptno() {
+	public JSONObject countByDeptno() {
 		String sql = "select deptno, count(*) as count from copyemp group by deptno";
 		
-		Map<String, Integer> list = new HashMap<>();
-		
-		
-		
+		JSONObject json = new JSONObject();
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
-				list.put(String.valueOf(rs.getInt("deptno")), rs.getInt("count"));
+				json.put(rs.getInt("deptno"), rs.getInt("count"));
 			}
-
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -398,25 +393,22 @@ public class EmpDao {
 				System.out.println(e.getMessage());
 			}
 		}
-
-		return list;
+		System.out.println(json);
+		return json;
 	}
 	
-	public Map<String, Integer> countByJob() {
+	public JSONObject countByJob() {
 		String sql = "select job, count(*) as count from copyemp group by job";
 		
-		Map<String, Integer> list = new HashMap<>();
-		
-		
-		
+		JSONObject json = new JSONObject();
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
-				list.put(rs.getString("job"), rs.getInt("count"));
-			}
+        json.put(rs.getString("job"), rs.getInt("count"));
+      }
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -435,8 +427,7 @@ public class EmpDao {
 				System.out.println(e.getMessage());
 			}
 		}
-
-		return list;
+		System.out.println(json);
+		return json;
 	}
-	
 }
