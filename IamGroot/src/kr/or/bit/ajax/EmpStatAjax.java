@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.dao.EmpDao;
 
-@WebServlet("/stat")
+@WebServlet("/main/stat")
 public class EmpStatAjax extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -34,7 +34,7 @@ public class EmpStatAjax extends HttpServlet {
 		}
 		request.setAttribute("list", list);
 		
-		RequestDispatcher dis = request.getRequestDispatcher("/WEB-INF/views/stat.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("/WEB-INF/views/showChart.jsp");
 		dis.forward(request, response);
 	}
 
