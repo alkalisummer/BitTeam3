@@ -21,11 +21,11 @@
     </select>
     <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 <script>
-		var name = [];
+		var key = [];
 		var value = [];
 		
 		<c:forEach var = "count" items = "${list}">
-	  name.push(${count.key});
+	  key.push(${count.key});
 	  value.push(${count.value});
 	</c:forEach>
 	console.log(name,value);

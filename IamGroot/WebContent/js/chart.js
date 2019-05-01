@@ -1,3 +1,8 @@
+console.log(key);
+console.log(value);
+
+
+
 Highcharts.chart('container', {
     chart: {
         plotBackgroundColor: null,
