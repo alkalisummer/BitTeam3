@@ -43,6 +43,9 @@
     <ul>
       <li><a href="register.html">사원 등록</a></li>
       <li><a href="emplyoeeface.html">사원 면상</a></li>
+      <li><a href="stat?chart=deptno">사원 통계</a></li>
+      
+      
     </ul>
   </aside>
 

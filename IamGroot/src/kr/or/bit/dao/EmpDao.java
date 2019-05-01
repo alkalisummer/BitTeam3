@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -361,5 +363,80 @@ public class EmpDao {
 		
 
 	}
+	
+	
+	public Map<String, Integer> countByDeptno() {
+		String sql = "select deptno, count(*) as count from copyemp group by deptno";
+		
+		Map<String, Integer> list = new HashMap<>();
+		
+		
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
 
+			while(rs.next()) {
+				list.put(String.valueOf(rs.getInt("deptno")), rs.getInt("count"));
+			}
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+
+		return list;
+	}
+	
+	public Map<String, Integer> countByJob() {
+		String sql = "select job, count(*) as count from copyemp group by job";
+		
+		Map<String, Integer> list = new HashMap<>();
+		
+		
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+				list.put(rs.getString("job"), rs.getInt("count"));
+			}
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+
+		return list;
+	}
+	
 }
