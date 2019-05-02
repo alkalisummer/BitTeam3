@@ -239,7 +239,7 @@ public class EmpDao {
 
 	public int deleteEmp(int empno) {
 		int row = 0;
-		String sql = "delete from copyemp where empno = ? cascade";
+		String sql = "delete from copyemp where empno = ?";
 
 		try {
 			conn = ds.getConnection();

@@ -11,7 +11,7 @@ body, html {
 }
 
 body {
-  background: url("../picture/photo/indexbg.jpg");
+  background: url("../picture/photo/indexbg2.jpg");
   background-size: cover;
 }
 
@@ -51,62 +51,39 @@ body {
   text-decoration: none;
 }
 
-@keyframes text { 0% {
+@keyframes text { 
+0% 
+  {
   color: white;
   margin-bottom: -40px;
-}
+  }
 
 30%
-{
-letter-spacing
-:
- 
-25
-px
-;
-
-        
-margin-bottom
-:
- 
--40
-px
-;
-
-    
-}
+  {
+  letter-spacing:25px;     
+  margin-bottom:-40px;
+   
+  }
 85%
-{
-letter-spacing
-:
- 
-8
-px
-;
-
-        
-margin-bottom
-:
- 
--40
-px
-;
-
-    
-}
+  {
+  letter-spacing:8px;
+  margin-bottom:-40px;
+  }
 }
 
-@keyframes text2 { 
+@keyframes text2 
+
+{ 
   0% {
   color: black;
   opacity: 0;
-}
+    }
 
-85%
-{
-color:black;
-opacity:0;
-}
+  85%
+    {
+    color:black;
+    opacity:0;
+    }
 }
 .dark {
   width: 100%;
