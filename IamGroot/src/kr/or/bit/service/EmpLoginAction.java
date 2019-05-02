@@ -35,7 +35,7 @@ public class EmpLoginAction implements Action {
       System.out.println("loginaction: " + session.getAttribute("login"));
     } else {
       msg = "일치하는 회원 정보가 없습니다.";
-      url = "index.html";
+      url = "login.html";
       session.setAttribute("login", loginSuccess);
     }
     
