@@ -53,6 +53,7 @@
     <input type="text" id="comm" name="comm" class="text"><br> 
     <label for="mgr" class="label">관리자 사번</label> 
     <select class="select">
+      <option value="0">관리자 없음</option>
       <c:forEach var="mgr" items="${mgrList}">
       <option value="${mgr}">${mgr}</option>
       </c:forEach>

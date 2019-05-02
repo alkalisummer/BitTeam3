@@ -23,7 +23,9 @@ public class EmpRegInputAction implements Action {
     List<Integer> empnolist = new ArrayList<Integer>();
     
     for (Emp e : list) {
-      empnolist.add(e.getEmpno());
+      if (e.getEmpno() != 0) {
+        empnolist.add(e.getEmpno());
+      }
     }
     
     int newEmpno = Collections.max(empnolist) + 1;

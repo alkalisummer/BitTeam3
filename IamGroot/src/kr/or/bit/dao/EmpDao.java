@@ -429,7 +429,7 @@ public class EmpDao {
 	
 	public List<String> selectDistinctJob() {
 	  List<String> jobList = new ArrayList<String>();
-	  String sql = "select distinct job from copyemp";
+	  String sql = "select distinct job from copyemp order by job asc";
 
     try {
       conn = ds.getConnection();
@@ -462,7 +462,7 @@ public class EmpDao {
 	
 	public List<Integer> selectDistinctDeptno() {
     List<Integer> deptList = new ArrayList<Integer>();
-    String sql = "select distinct deptno from copyemp";
+    String sql = "select distinct deptno from copyemp order by deptno asc";
 
     try {
       conn = ds.getConnection();

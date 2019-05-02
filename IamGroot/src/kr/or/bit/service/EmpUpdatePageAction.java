@@ -1,5 +1,8 @@
 package kr.or.bit.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,13 +18,25 @@ public class EmpUpdatePageAction implements Action {
     ActionForward forward = new ActionForward();
     int empno = Integer.parseInt(request.getParameter("empno"));
 
-    try {
-      EmpDao dao = new EmpDao();
-      Emp emp = dao.selectByEmpno(empno);
-      request.setAttribute("emp", emp);
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
+    EmpDao dao = new EmpDao();
+    Emp emp = dao.selectByEmpno(empno);
+    List<Emp> list = dao.selectAll();
+    
+    List<Integer> empnolist = new ArrayList<Integer>();
+    
+    for (Emp e : list) {
+      if (e.getEmpno() != 0) {
+        empnolist.add(e.getEmpno());
+      }
     }
+    
+    List<String> jobList = dao.selectDistinctJob();
+    List<Integer> deptList = dao.selectDistinctDeptno();
+    
+    request.setAttribute("emp", emp);
+    request.setAttribute("mgrList", empnolist);
+    request.setAttribute("jobList", jobList);
+    request.setAttribute("deptList", deptList);
 
     forward.setRedirect(false);
     forward.setPath("/WEB-INF/views/update.jsp");

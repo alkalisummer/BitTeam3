@@ -2,6 +2,9 @@
   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="emp" value="${requestScope.emp}" />
+<c:set var="mgrList" value="${requestScope.mgrList}" />
+<c:set var="jobList" value="${requestScope.jobList}" />
+<c:set var="deptList" value="${requestScope.deptList}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,12 +31,28 @@
   <form action="update.do" method="POST">
     <span class="label">사번</span><input type="text" name="empno" value="${emp.empno}" class="text" readonly><br>
     <span class="label">이름</span><input type="text" name="ename" value="${emp.ename}" class="text"><br>
-    <span class="label">직종</span><input type="text" name="job" value="${emp.job}" class="text"><br>
-    <span class="label">관리자 사번</span><input type="text" name="mgr" value="${emp.mgr}" class="text"><br>
+    <span class="label">직종</span>
+    <select class="select">
+      <c:forEach var="job" items="${jobList}">
+      <option value="${job}">${job}</option>
+      </c:forEach>
+    </select><br>
+    <span class="label">관리자 사번</span>
+    <select class="select">
+      <option value="0">관리자 없음</option>
+      <c:forEach var="mgr" items="${mgrList}">
+      <option value="${mgr}">${mgr}</option>
+      </c:forEach>
+    </select><br>
     <span class="label">입사일</span><input type="text" name="hiredate" value="${emp.hiredate}" class="text" readonly><br> 
     <span class="label">월급</span><input type="text" name="sal" value="${emp.sal}" class="text"><br> 
     <span class="label">커미션</span><input type="text" name="comm" value="${emp.comm}" class="text"><br> 
-    <span class="label">부서 번호</span><input type="text" name="deptno" value="${emp.deptno}" class="text"><br>
+    <span class="label">부서 번호</span>
+    <select class="select">
+      <c:forEach var="deptno" items="${deptList}">
+      <option value="${deptno}">${deptno}</option>
+      </c:forEach>
+    </select><br>
    <input type="submit" value="수정하기" class="button"><br> 
    <a class="emplink" href="list.do">&lt; 취소하고 돌아가기</a><br>
   </form>
