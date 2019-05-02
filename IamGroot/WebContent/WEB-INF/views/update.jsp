@@ -18,7 +18,9 @@
       <ul>
         <li><a href="regInput.do">사원 등록</a></li>
         <li><a href="chart.do">사원 통계</a></li>
+        <li><a href="logout.do">로그아웃</a></li>
       </ul>
+      <hr>
     </div>
   </nav>
   <form action="update.do" method="POST">

@@ -71,8 +71,7 @@ public class EmpController extends HttpServlet {
       forward = new ActionForward();
       forward.setRedirect(false);
       forward.setPath("/WEB-INF/views/chart.jsp");
-    }
-
+    } 
     if (forward != null) {
       if (forward.isRedirect()) {
         response.sendRedirect(forward.getPath());

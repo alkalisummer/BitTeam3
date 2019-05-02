@@ -24,6 +24,7 @@
     <ul>
       <li><a href="../register.html">사원 등록</a></li>
       <li><a href="chart.do">사원 통계</a></li>
+       <li><a href="logout.do">로그아웃</a></li>
     </ul>
   </div>
   </nav>
