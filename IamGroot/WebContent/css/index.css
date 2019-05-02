@@ -51,8 +51,7 @@ body {
   text-decoration: none;
 }
 
-@
-keyframes text { 0% {
+@keyframes text { 0% {
   color: white;
   margin-bottom: -40px;
 }
@@ -96,23 +95,17 @@ px
     
 }
 }
-@
-keyframes text2 { 0% {
+
+@keyframes text2 { 
+  0% {
   color: black;
   opacity: 0;
 }
 
 85%
 {
-color
-:black
-;
-
-    
-opacity
-:
- 
-0;
+color:black;
+opacity:0;
 }
 }
 .dark {
