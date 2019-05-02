@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns = {"/main/*", "register.html"})
+@WebFilter(urlPatterns = {"/main/*", "/register.html"})
 public class CheckAdminFilter implements Filter {
   public CheckAdminFilter() {
   }
@@ -32,6 +32,7 @@ public class CheckAdminFilter implements Filter {
     if (isLogin.equals("false")) {
       String msg = "잘못된 접근입니다.";
       String url = "../login.html";
+      System.out.println(url);
       request.setAttribute("msg", msg);
       request.setAttribute("url", url);
       RequestDispatcher dis = request.getRequestDispatcher("/WEB-INF/views/redirect.jsp");

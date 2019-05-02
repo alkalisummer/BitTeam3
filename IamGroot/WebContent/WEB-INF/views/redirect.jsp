@@ -7,8 +7,8 @@
   if (msg != null && url != null) {
 %>
 <script>
-		alert('<%=msg%>');		
-	    location.href='<%=url%>';
+	alert('<%=msg%>');		
+	location.href='<%=url%>';
 </script>
 <%
   }

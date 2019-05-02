@@ -5,37 +5,33 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import kr.or.bit.dto.Emp;
 import kr.or.bit.dto.EmpFace;
 
-// CRUD 작업
-// DB서버 통신 > CRUD method 제공
-// memo table > select, insert, update, delete 함수 제공
-// select(다중, 단일), insert, update, delete 5개 함수가 기본
+// CRUD �옉�뾽
+// DB�꽌踰� �넻�떊 > CRUD method �젣怨�
+// memo table > select, insert, update, delete �븿�닔 �젣怨�
+// select(�떎以�, �떒�씪), insert, update, delete 5媛� �븿�닔媛� 湲곕낯
 
-// CRUD 함수 생성 (parameter, return type) 고민
-// parameter 객체 (DTO 타입)
-// return 객체, 문자열 return
+// CRUD �븿�닔 �깮�꽦 (parameter, return type) 怨좊��
+// parameter 媛앹껜 (DTO ���엯)
+// return 媛앹껜, 臾몄옄�뿴 return
 
 // public int insertMemo(String id, String email, String content) {}
 // public int insertMemo(Memo memo) {}
 
-// 단일 select
+// �떒�씪 select
 // public Memo selectByMemoID(String id) {}
 
-// 다중 select
+// �떎以� select
 // public List<Memo> selectMemo() {}
 // List<Memo> list = new ArrayList<>();
 public class EmpDao {
@@ -46,8 +42,8 @@ public class EmpDao {
 
 	public EmpDao() {
 		try {
-			Context context = new InitialContext(); // 이름 기반 검색
-			ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle"); // jdbc/oracle 이름의 pool을 찾음
+			Context context = new InitialContext(); // �씠由� 湲곕컲 寃��깋
+			ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle"); // jdbc/oracle �씠由꾩쓽 pool�쓣 李얠쓬
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -335,9 +331,9 @@ public class EmpDao {
 	}
 
 	public int uploadFace(EmpFace empface) {
-		// 1. 사진파일 올리기 
-		// 2. 사진 url 을 얻는다. 
-		// 3. 그 url을 테이블에 업데이트 방식으로 넣는다.  
+		// 1. �궗吏꾪뙆�씪 �삱由ш린 
+		// 2. �궗吏� url �쓣 �뼸�뒗�떎. 
+		// 3. 洹� url�쓣 �뀒�씠釉붿뿉 �뾽�뜲�씠�듃 諛⑹떇�쑝濡� �꽔�뒗�떎.  
 		int row = 0;
 		String sql = "update empface set url=? where empno = ?";
 

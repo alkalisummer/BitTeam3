@@ -5,7 +5,6 @@ import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -19,22 +18,18 @@ public class EmpUploadAction implements Action {
 
   @Override
   public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-    HttpSession session = request.getSession();
     String uploadpath = request.getServletContext().getRealPath("images");
     System.out.println(uploadpath);
 
     int size = 1024 * 1024 * 10;
-
-    String filename1 = "";
-    String orifilename1 = "";
-
     ActionForward forward = null;
 
     try {
       MultipartRequest multi = new MultipartRequest(request, uploadpath, size, "UTF-8", new DefaultFileRenamePolicy());
-      Enumeration filenames = multi.getFileNames();
-      String file = (String) filenames.nextElement();
+      Enumeration<String> filenames = multi.getFileNames();
+      String file = filenames.nextElement();
       String face = multi.getFilesystemName(file);
+      System.out.println(face);
       int empno = Integer.parseInt(multi.getParameter("empno"));
       System.out.println(face + empno);
 
@@ -46,8 +41,8 @@ public class EmpUploadAction implements Action {
       int row = dao.uploadFace(empface);
 
       String msg = "";
-      String url = "main/load.do?empno=" + empno;
-
+      String url = "load.do?empno=" + empno;
+      System.out.println("row="+row);
       if (row > 0) {
         msg = "업로드 성공";
       } else {
