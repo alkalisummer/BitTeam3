@@ -6,23 +6,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>사원 통계</title>
 <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
+<link rel="stylesheet" href="../css/master.css">  
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 </head>
 <body>
+  <nav>
+    <div class="wrap">
+      <img src="../picture/icon/groot.png" class="logo">
+      <h1>(주)GROOT</h1>
+      <ul>
+        <li><a href="regInput.do">사원 등록</a></li>
+        <li><a href="emplyoeeface.html">사원 면상</a></li>
+        <li><a href="chart.do">사원 통계</a></li>
+      </ul>
+    </div>
+  </nav>
   <a href="list.do">돌아가기</a>
   <select id="chart" name="chart">
     <option value="deptno">부서번호</option>
     <option value="job">직종</option>
   </select>
-
   <canvas id="container"></canvas>
-<script>
+  <script>
 $(function() {
   <%EmpDao dao = new EmpDao();%>
   var keylist = [];

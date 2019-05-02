@@ -24,7 +24,7 @@ public class EmpRegisterAction implements Action {
       String msg = "";
 
       Emp emp = new Emp();
-
+      
       emp.setEmpno(Integer.parseInt(request.getParameter("empno")));
       emp.setEname(request.getParameter("ename"));
       emp.setDeptno(Integer.parseInt(request.getParameter("deptno")));
