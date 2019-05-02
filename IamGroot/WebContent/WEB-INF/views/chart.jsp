@@ -25,11 +25,10 @@
     <ul>
       <li><a href="regInput.do">사원 등록</a></li>
       <li><a href="chart.do">사원 통계</a></li>
-       <li><a href="logout.do">로그아웃</a></li>
     </ul>
     <ul>
   		<li class="user"><%= session.getAttribute("id") %>님</li>
-  		<li><a class="user" href="logout.do">Logout</a> </li>
+  		<li><a class="user" href="logout.do">로그아웃</a> </li>
   	</ul>
   </div>
   </nav>
@@ -43,7 +42,7 @@
       <select id="chart" name="chart" class="selsize">
         <option value="deptno">부서번호</option>
         <option value="job">직종</option>
-      </select> <a class="emplink" href="list.do">&lt; 취소하고 돌아가기</a>
+      </select> <a class="emplink" href="list.do">&lt; 돌아가기</a>
     </div>
   </div>
 

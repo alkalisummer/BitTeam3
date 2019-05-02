@@ -426,4 +426,70 @@ public class EmpDao {
 		System.out.println(json);
 		return json;
 	}
+	
+	public List<String> selectDistinctJob() {
+	  List<String> jobList = new ArrayList<String>();
+	  String sql = "select distinct job from copyemp";
+
+    try {
+      conn = ds.getConnection();
+      pstmt = conn.prepareStatement(sql);
+      rs = pstmt.executeQuery();
+
+      while (rs.next()) {
+        jobList.add(rs.getString(1));
+      }
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    } finally {
+      try {
+        if (rs != null) {
+          rs.close();
+        }
+        if (pstmt != null) {
+          pstmt.close();
+        }
+        if (conn != null) {
+          conn.close();
+        }
+      } catch (Exception e) {
+        System.out.println(e.getMessage());
+      }
+    }
+
+	  return jobList;
+	}
+	
+	public List<Integer> selectDistinctDeptno() {
+    List<Integer> deptList = new ArrayList<Integer>();
+    String sql = "select distinct deptno from copyemp";
+
+    try {
+      conn = ds.getConnection();
+      pstmt = conn.prepareStatement(sql);
+      rs = pstmt.executeQuery();
+
+      while (rs.next()) {
+        deptList.add(rs.getInt(1));
+      }
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    } finally {
+      try {
+        if (rs != null) {
+          rs.close();
+        }
+        if (pstmt != null) {
+          pstmt.close();
+        }
+        if (conn != null) {
+          conn.close();
+        }
+      } catch (Exception e) {
+        System.out.println(e.getMessage());
+      }
+    }
+
+    return deptList;
+  }
 }

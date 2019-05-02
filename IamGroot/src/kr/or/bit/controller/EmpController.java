@@ -15,6 +15,7 @@ import kr.or.bit.service.EmpDeleteAction;
 import kr.or.bit.service.EmpListAction;
 import kr.or.bit.service.EmpLoadAction;
 import kr.or.bit.service.EmpLoginAction;
+import kr.or.bit.service.EmpRegInputAction;
 import kr.or.bit.service.EmpRegisterAction;
 import kr.or.bit.service.EmpUpdateAction;
 import kr.or.bit.service.EmpUpdatePageAction;
@@ -46,9 +47,8 @@ public class EmpController extends HttpServlet {
       action = new EmpListAction();
       forward = action.execute(request, response);
     } else if (urlCommand.equals("/main/regInput.do")) {
-      forward = new ActionForward();
-      forward.setRedirect(false);
-      forward.setPath("/WEB-INF/views/register.jsp");
+      action = new EmpRegInputAction();
+      forward = action.execute(request, response);
     } else if (urlCommand.equals("/main/register.do")) {
       action = new EmpRegisterAction();
       forward = action.execute(request, response);
