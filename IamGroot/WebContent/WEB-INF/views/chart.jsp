@@ -13,15 +13,36 @@
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+  <link rel="stylesheet" href="../css/master.css">
 </head>
 <body>
-  <a href="list.do">돌아가기</a>
-  <select id="chart" name="chart">
+<nav>
+    <div class = "wrap">
+    <a href = "list.do">
+    <img src = "../picture/icon/groot.png" class = "logo"></a>
+    <h1>(주)GROOT</h1>
+    <ul>
+      <li><a href="../register.html">사원 등록</a></li>
+      <li><a href="emplyoeeface.html">사원 면상</a></li>
+      <li><a href="chart.do">사원 통계</a></li>
+    </ul>
+  </div>
+  </nav>
+    
+
+  <div class = "chartmove">
+  <canvas id="container" width="400" height="100"></canvas>
+  <div>
+    <div class = "chartbox">
+    <div class = "chartgap">
+<select id="chart" name="chart" class = "selsize">
     <option value="deptno">부서번호</option>
     <option value="job">직종</option>
   </select>
-
-  <canvas id="container"></canvas>
+   <a class = "emplink" href="list.do">&lt; 취소하고 돌아가기</a>
+    </div>
+  </div>
+ 
 <script>
 $(function() {
   <%EmpDao dao = new EmpDao();%>
@@ -115,5 +136,6 @@ $("#chart").change(function() {
     },
 )
 </script>
+
 </body>
 </html>

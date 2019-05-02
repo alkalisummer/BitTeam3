@@ -144,3 +144,25 @@ h1 {
   color:#4c4c4c;
   margin-top:10px;
 }
+.chartbox {
+  width:100%;
+  display:flex;
+  margin-top:20px;
+  
+}
+
+.chartgap {
+  margin:auto;
+  
+}
+.selsize {
+  width:200px;
+  height:30px;
+}
+
+.chartmove {
+  margin-top:100px;
+}
+
+
+
