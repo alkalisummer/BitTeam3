@@ -10,7 +10,8 @@
 <body>
   <nav>
     <div class="wrap">
-      <img src="../picture/icon/groot.png" class="logo">
+     <a href = "list.do">
+      <img src="../picture/icon/groot.png" class="logo"></a>
       <h1>(주)GROOT</h1>
       <ul>
         <li><a href="regInput.do">사원 등록</a></li>
