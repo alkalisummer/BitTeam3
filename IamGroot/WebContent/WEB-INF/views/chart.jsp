@@ -22,9 +22,13 @@
     <img src = "../picture/icon/groot.png" class = "logo"></a>
     <h1>(주)GROOT</h1>
     <ul>
-      <li><a href="../register.html">사원 등록</a></li>
+      <li><a href="regInput.do">사원 등록</a></li>
       <li><a href="chart.do">사원 통계</a></li>
     </ul>
+    <ul>
+  		<li class="user"><%= session.getAttribute("id") %>님</li>
+  		<li><a class="user" href="logout.do">Logout</a> </li>
+  	</ul>
   </div>
   </nav>
     

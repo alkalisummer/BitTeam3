@@ -116,6 +116,10 @@ nav {
   font-weight: bold;
 }
 
+.user:hover{
+	color: #C62917;
+}
+
 h1 {
   font-size: 22px;
   line-height: 25px;

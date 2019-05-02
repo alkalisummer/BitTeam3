@@ -71,7 +71,11 @@ public class EmpController extends HttpServlet {
       forward = new ActionForward();
       forward.setRedirect(false);
       forward.setPath("/WEB-INF/views/chart.jsp");
-    }
+    } else if (urlCommand.equals("/main/logout.do")) {
+        forward = new ActionForward();
+        forward.setRedirect(false);
+        forward.setPath("/WEB-INF/views/logout.jsp");
+      }
 
     if (forward != null) {
       if (forward.isRedirect()) {
