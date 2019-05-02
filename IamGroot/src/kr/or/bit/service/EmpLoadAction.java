@@ -18,6 +18,10 @@ public class EmpLoadAction implements Action {
 		EmpDao dao = new EmpDao();
 		
 		EmpFace empface = dao.loadFace(empno);
+		System.out.println(empface.getUrl());
+		if (empface.getUrl() == null) {
+			empface.setUrl("default.png");
+		}
 		Emp emp = dao.selectByEmpno(empface.getEmpno());
 		
 		request.setAttribute("empface", empface);

@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>사원 사진 업로드</title>
 <link rel="stylesheet" href="../css/master.css">
+<link rel="stylesheet" href="../css/face.css">
 </head>
 <body>
   <nav>
@@ -21,14 +22,19 @@
       </ul>
     </div>
   </nav>
-  <h3>${emp.ename}</h3>
-  <h4>${empface.empno}</h4>
-  <img alt="" src="images/${empface.url}">
+  <div class="container">
+  <h3 class="ename">${emp.ename}</h3>
+  <h4 class="empno">${empface.empno}</h4>
+  <img alt="사원 사진" src="/IamGroot/images/${empface.url}" class="photo">
   <form action="upload.do" method="post" enctype="multipart/form-data">
-    <input type="file" name="face"> 
-    <input type="hidden" name="empno" value="${empface.empno}"> 
-    <input type="submit" value="upload">
+  <label class="fileSelect">
+    <input type="file" name="face" class="file">
+         사진 선택하기
+  </label> 
+    <input type="hidden" name="empno" value="${empface.empno}"><br>
+    <input type="submit" value="사진 바꾸기" class="upload-button">
   </form>
-  <a href="list.do">돌아가기</a>
+  <a href="list.do" class="back">&lt;&nbsp;돌아가기</a>
+  </div>
 </body>
 </html>
