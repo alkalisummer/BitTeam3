@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>사원 사진 업로드</title>
 <link rel="stylesheet" href="../css/master.css">
+<link rel="stylesheet" href="../css/face.css">
 </head>
 <body>
   <nav>
