@@ -112,7 +112,6 @@ public class EmpDao {
 				emp.setSal(rs.getInt("sal"));
 				emp.setComm(rs.getInt("comm"));
 				emp.setDeptno(rs.getInt("deptno"));
-
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -361,7 +360,7 @@ public class EmpDao {
 	
 	
 	public JSONObject countByDeptno() {
-		String sql = "select deptno, count(*) as count from copyemp group by deptno";
+	  String sql = "select d.dname, count(*) as count from copyemp c join dept d on c.deptno = d.deptno group by d.dname";
 		
 		JSONObject json = new JSONObject();
 		try {
@@ -370,7 +369,7 @@ public class EmpDao {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
-				json.put(rs.getInt("deptno"), rs.getInt("count"));
+				json.put(rs.getString("dname"), rs.getInt("count"));
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

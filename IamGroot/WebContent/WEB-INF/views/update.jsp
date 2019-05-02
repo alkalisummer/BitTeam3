@@ -32,13 +32,13 @@
     <span class="label">사번</span><input type="text" name="empno" value="${emp.empno}" class="text" readonly><br>
     <span class="label">이름</span><input type="text" name="ename" value="${emp.ename}" class="text"><br>
     <span class="label">직종</span>
-    <select class="select">
+    <select name="job" class="select">
       <c:forEach var="job" items="${jobList}">
       <option value="${job}">${job}</option>
       </c:forEach>
     </select><br>
     <span class="label">관리자 사번</span>
-    <select class="select">
+    <select name="mgr" class="select">
       <option value="0">관리자 없음</option>
       <c:forEach var="mgr" items="${mgrList}">
       <option value="${mgr}">${mgr}</option>
@@ -48,7 +48,7 @@
     <span class="label">월급</span><input type="text" name="sal" value="${emp.sal}" class="text"><br> 
     <span class="label">커미션</span><input type="text" name="comm" value="${emp.comm}" class="text"><br> 
     <span class="label">부서 번호</span>
-    <select class="select">
+    <select name="deptno" class="select">
       <c:forEach var="deptno" items="${deptList}">
       <option value="${deptno}">${deptno}</option>
       </c:forEach>

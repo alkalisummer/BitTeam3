@@ -32,7 +32,9 @@ public class EmpListAjax extends HttpServlet {
     if (order.equals("empno")) {
       list = new ArrayList<Emp>();
       Emp emp = dao.selectByEmpno(number);
-      list.add(emp);
+      if (emp != null) {
+        list.add(emp);
+      }
     } else {
       list = dao.selectByDeptno(number);
     }

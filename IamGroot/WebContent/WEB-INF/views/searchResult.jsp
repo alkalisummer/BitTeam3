@@ -5,7 +5,7 @@
 <c:forEach var="emp" items="${list}">
 <tr>
   <td>${emp.empno}</td>
-  <td><a href = "load.do?empno=${emp.empno}" class = "upload">${emp.ename}</a></td>
+  <td><a href = "load.do?empno=${emp.empno}" class="upload">${emp.ename}</a></td>
   <td>${emp.job}</td>
   <td>${emp.mgr}</td>
   <td>${emp.hiredate}</td>

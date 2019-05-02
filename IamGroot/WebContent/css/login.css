@@ -45,7 +45,8 @@ form {
 
 .text:focus {
   border-width: 1px;
-  border-color: blue;
+  border-color: #6FE9B9;
+  border-radius: 5px;
   transition: 0.5s;
 }
 

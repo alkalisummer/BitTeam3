@@ -44,7 +44,7 @@ public class EmpRegisterAction implements Action {
 
       } else {
         msg = "등록 실패";
-        url = "../register.html";
+        url = "list.do";
       }
       request.setAttribute("msg", msg);
       request.setAttribute("url", url);

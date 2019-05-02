@@ -34,7 +34,7 @@
     <label for="ename" class="label">사원이름</label> 
     <input type="text" id="ename" name="ename" class="text"><br> 
     <label for="job" class="label">직업</label> 
-    <select class="select">
+    <select name="job" class="select">
       <c:forEach var="job" items="${jobList}">
       <option value="${job}">${job}</option>
       </c:forEach>
@@ -42,7 +42,7 @@
     <label for="hiredate" class="label">입사일</label> 
     <input type="date" id="hiredate" name="hiredate" class="text date"><br> 
     <label for="deptno" class="label">부서번호</label>
-    <select class="select">
+    <select name="deptno" class="select">
       <c:forEach var="deptno" items="${deptList}">
       <option value="${deptno}">${deptno}</option>
       </c:forEach>
@@ -52,7 +52,7 @@
     <label for="comm" class="label">수당</label> 
     <input type="text" id="comm" name="comm" class="text"><br> 
     <label for="mgr" class="label">관리자 사번</label> 
-    <select class="select">
+    <select name="mgr" class="select">
       <option value="0">관리자 없음</option>
       <c:forEach var="mgr" items="${mgrList}">
       <option value="${mgr}">${mgr}</option>

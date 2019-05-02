@@ -40,7 +40,7 @@
   <div class="chartbox">
     <div class="chartgap">
       <select id="chart" name="chart" class="selsize">
-        <option value="deptno">부서번호</option>
+        <option value="deptno">부서</option>
         <option value="job">직종</option>
       </select> <a class="emplink" href="list.do">&lt; 돌아가기</a>
     </div>
@@ -86,12 +86,18 @@ $(function() {
       myChart = new Chart(ctx, {
         type: 'pie',
         data,
-        option: {},
+        options: {
+          title: {
+            display: true,
+            text: "부서 별 사원 수"
+          }
+        },
       });
 });
 
 $("#chart").change(function() {
   var selected = $("#chart").val();
+  var titleText = $(this).find("option[value='" + $(this).val() + "']").text() + " 별 사원 수";
   var keylist = [];
   var valuelist = [];
   if (selected === 'deptno') {
@@ -139,10 +145,14 @@ $("#chart").change(function() {
       myChart = new Chart(ctx, {
         type: 'pie',
         data,
-        option: {},
-      });    
-    },
-)
+        options: {
+          title: {
+            display: true,
+            text: titleText
+          }
+        },
+      });
+});
 </script>
 
 </body>
