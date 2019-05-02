@@ -35,6 +35,7 @@ public class EmpUploadAction implements Action {
       Enumeration filenames = multi.getFileNames();
       String file = (String) filenames.nextElement();
       String face = multi.getFilesystemName(file);
+      System.out.println(face);
       int empno = Integer.parseInt(multi.getParameter("empno"));
       System.out.println(face + empno);
 
@@ -46,8 +47,8 @@ public class EmpUploadAction implements Action {
       int row = dao.uploadFace(empface);
 
       String msg = "";
-      String url = "main/load.do?empno=" + empno;
-
+      String url = "load.do?empno=" + empno;
+      System.out.println("row="+row);
       if (row > 0) {
         msg = "업로드 성공";
       } else {

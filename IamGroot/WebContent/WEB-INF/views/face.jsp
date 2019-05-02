@@ -13,7 +13,7 @@
 <body>
     <h3>${emp.ename}</h3>
     <h4>${empface.empno}</h4>
-    <img alt="" src="images/${empface.url}">
+    <img alt="" src="<%=request.getContextPath() %>/images/${empface.url}">
     <form action ="upload.do" method="post" enctype = "multipart/form-data">
     <input type="file" name="face">
     <input type="hidden" name="empno" value="${empface.empno}">
