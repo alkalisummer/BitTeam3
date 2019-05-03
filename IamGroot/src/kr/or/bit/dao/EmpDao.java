@@ -209,6 +209,7 @@ public class EmpDao {
 	public int insertEmp(Emp emp) {
 		int row = 0;
 		String sql = "insert into copyemp (empno, ename, job, mgr, hiredate, sal, comm, deptno) values (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql2 = "insert into empface (empno) values (?)";
 
 		try {
 			conn = ds.getConnection();
@@ -223,6 +224,10 @@ public class EmpDao {
 			pstmt.setInt(8, emp.getDeptno());
 
 			row = pstmt.executeUpdate();
+			
+			pstmt = conn.prepareStatement(sql2);			
+			pstmt.setInt(1, emp.getEmpno());
+			pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
